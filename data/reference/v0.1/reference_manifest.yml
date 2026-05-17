@@ -1,0 +1,124 @@
+# OncoReconcile AI Reference Data Manifest v0.1
+
+## Overview
+This manifest describes the reference knowledge base for OncoReconcile AI MVP.
+
+## Data Version
+- Version: 0.1
+- Release Date: 2026-05-01
+- Genes Covered: 6 (EGFR, BRAF, ERBB2/HER2, KRAS, ALK, MET)
+- Total Canonical Variants: 30+
+- Total Aliases: 100+
+
+## File Inventory
+
+### Core Data Files
+
+#### gene_aliases.csv
+- **Purpose**: Map input gene symbols to canonical HGNC names
+- **Rows**: 50+ (includes common aliases)
+- **Columns**: gene_input, canonical_gene, hgnc_id, entrez_id, description
+
+#### canonical_variants.csv
+- **Purpose**: Master list of curated variants
+- **Rows**: 30+
+- **Columns**: canonical_id, gene, hgvs_dna, hgvs_protein, variant_type, clinical_significance, nccn_tier, transcript
+
+#### variant_synonyms.csv
+- **Purpose**: Nomenclature mappings for flexible search
+- **Rows**: 100+
+- **Columns**: canonical_id, synonym, synonym_type (shorthand|hgvs_dna|hgvs_protein|cdna)
+
+#### variant_evidence.csv
+- **Purpose**: Clinical evidence links
+- **Rows**: 50+
+- **Columns**: canonical_id, evidence_source, evidence_id, evidence_title, evidence_type (guideline|publication|assertion), url
+
+## Covered Genes
+
+### 1. EGFR (Epidermal Growth Factor Receptor)
+- HGNC ID: 3236
+- Common Variants:
+  - Exon 19 Deletion (sensitizing)
+  - L858R (sensitizing)
+  - T790M (resistance)
+
+### 2. BRAF (B-Raf Proto-Oncogene)
+- HGNC ID: 1097
+- Common Variants:
+  - V600E (activating)
+  - Insertions, deletions
+
+### 3. ERBB2/HER2 (Human Epidermal Growth Factor Receptor 2)
+- HGNC ID: 3236
+- Common Variants:
+  - Exon 20 Insertions (activating)
+  - S310F, other mutations
+
+### 4. KRAS (Kirsten Rat Sarcoma Viral Oncogene Homolog)
+- HGNC ID: 6407
+- Common Variants:
+  - G12C (target for sotorasib)
+  - G12V, G13D (other mutations)
+
+### 5. ALK (Anaplastic Lymphoma Kinase)
+- HGNC ID: 427
+- Common Variants:
+  - EML4-ALK fusion
+  - ALK mutations, fusion partners
+
+### 6. MET (MET Proto-Oncogene)
+- HGNC ID: 6973
+- Common Variants:
+  - Exon 14 Skipping (METex14)
+  - MET Amplification, mutations
+
+## Usage
+
+### Loading Reference Data in Code
+
+```python
+from src.retrieval.semantic_search import KnowledgeBase
+
+kb = KnowledgeBase(
+    gene_aliases_path="data/reference/v0.1/gene_aliases.csv",
+    canonical_variants_path="data/reference/v0.1/canonical_variants.csv",
+    variant_synonyms_path="data/reference/v0.1/variant_synonyms.csv",
+    variant_evidence_path="data/reference/v0.1/variant_evidence.csv"
+)
+
+# Query: Find all EGFR variants
+egfr_variants = kb.get_variants_by_gene("EGFR")
+
+# Query: Find variant by synonym
+variant = kb.find_by_synonym("EGFR Ex19del")
+```
+
+## Data Quality Notes
+
+- All genes validated against HGNC (https://www.genenames.org/)
+- HGVS nomenclature follows official standards
+- Clinical significance based on NCCN guidelines and literature
+- Evidence links point to stable, public resources
+
+## Future Expansion
+
+Phase 2+ will include:
+- Additional genes (TP53, PIK3CA, MET, etc.)
+- Structural variants (fusions, rearrangements)
+- Phenotype associations
+- Drug response predictions
+- Institutional-specific variants
+
+## Data Attribution
+
+- **HGNC**: Gene nomenclature
+- **RefSeq**: Transcript information
+- **ClinVar**: Clinical significance
+- **CIViC**: Cancer-specific assertions
+- **NCCN**: Clinical guidelines
+
+---
+
+*For data dictionary details, see individual .csv files*
+*For updates and versions, see KB changelog in docs/data_changelog.md*

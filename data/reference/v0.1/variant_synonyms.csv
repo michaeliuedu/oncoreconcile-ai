@@ -1,0 +1,49 @@
+canonical_id,synonym,synonym_type
+EGFR|exon_19_deletion,EGFR Ex19del,shorthand
+EGFR|exon_19_deletion,EGFR exon_19_del,shorthand
+EGFR|exon_19_deletion,EGFR exon19del,shorthand
+EGFR|exon_19_deletion,EGFR e19del,shorthand
+EGFR|exon_19_deletion,EGFR DEL19,shorthand
+EGFR|exon_19_deletion,c.2235_2249del15,hgvs_dna
+EGFR|exon_19_deletion,p.E746_A750del,hgvs_protein
+EGFR|L858R,EGFR L858R,shorthand
+EGFR|L858R,EGFR L858R mutation,shorthand
+EGFR|L858R,c.2573T>G,hgvs_dna
+EGFR|L858R,p.L858R,hgvs_protein
+EGFR|T790M,EGFR T790M,shorthand
+EGFR|T790M,EGFR T790M mutation,shorthand
+EGFR|T790M,c.2369C>T,hgvs_dna
+EGFR|T790M,p.T790M,hgvs_protein
+EGFR|G719A,EGFR G719A,shorthand
+EGFR|G719A,c.2156G>A,hgvs_dna
+EGFR|G719A,p.G719A,hgvs_protein
+EGFR|exon_20_insertion,EGFR exon 20 insertion,shorthand
+EGFR|exon_20_insertion,EGFR ex20ins,shorthand
+EGFR|exon_20_insertion,c.2273_2292dup,hgvs_dna
+BRAF|V600E,BRAF V600E,shorthand
+BRAF|V600E,BRAF V600E mutation,shorthand
+BRAF|V600E,c.1799T>A,hgvs_dna
+BRAF|V600E,p.V600E,hgvs_protein
+BRAF|V600K,BRAF V600K,shorthand
+BRAF|V600K,c.1798_1799GT>AA,hgvs_dna
+BRAF|V600K,p.V600K,hgvs_protein
+ERBB2|exon_20_insertion,HER2 exon 20 insertion,shorthand
+ERBB2|exon_20_insertion,ERBB2 ex20ins,shorthand
+ERBB2|exon_20_insertion,c.2318_2319dup,hgvs_dna
+ERBB2|S310F,HER2 S310F,shorthand
+ERBB2|S310F,ERBB2 S310F,shorthand
+ERBB2|S310F,c.928C>T,hgvs_dna
+KRAS|G12C,KRAS G12C,shorthand
+KRAS|G12C,c.34G>T,hgvs_dna
+KRAS|G12C,p.G12C,hgvs_protein
+KRAS|G12V,KRAS G12V,shorthand
+KRAS|G12V,c.35G>T,hgvs_dna
+KRAS|G12V,p.G12V,hgvs_protein
+KRAS|G12D,KRAS G12D,shorthand
+KRAS|G12D,c.35G>A,hgvs_dna
+ALK|EML4-ALK,EML4-ALK fusion,shorthand
+ALK|EML4-ALK,EML4-ALK translocation,shorthand
+ALK|STRN-ALK,STRN-ALK fusion,shorthand
+MET|exon_14_skipping,MET exon 14 skipping,shorthand
+MET|exon_14_skipping,METex14,shorthand
+MET|exon_14_skipping,MET ex14,shorthand

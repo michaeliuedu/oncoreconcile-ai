@@ -1,0 +1,28 @@
+canonical_id,gene,hgvs_dna,hgvs_protein,variant_type,clinical_significance,nccn_tier,transcript
+EGFR|exon_19_deletion,EGFR,c.2235_2249del15,p.E746_A750del,deletion,Sensitizing (TKI-responsive),1,NM_005228.4
+EGFR|L858R,EGFR,c.2573T>G,p.L858R,substitution,Sensitizing (TKI-responsive),1,NM_005228.4
+EGFR|T790M,EGFR,c.2369C>T,p.T790M,substitution,Resistance (TKI-resistant),1,NM_005228.4
+EGFR|G719A,EGFR,c.2156G>A,p.G719A,substitution,Sensitizing (TKI-responsive),1,NM_005228.4
+EGFR|exon_20_insertion,EGFR,c.2273_2292dup,p.H835_K842dup,insertion,Functional (variable response),2,NM_005228.4
+BRAF|V600E,BRAF,c.1799T>A,p.V600E,substitution,Activating (BRAF inhibitor-responsive),1,NM_004333.4
+BRAF|V600K,BRAF,c.1798_1799GT>AA,p.V600K,substitution,Activating,1,NM_004333.4
+BRAF|V600D,BRAF,c.1799_1800TG>AT,p.V600D,substitution,Activating,2,NM_004333.4
+BRAF|K601E,BRAF,c.1802A>G,p.K601E,substitution,Functional,2,NM_004333.4
+ERBB2|exon_20_insertion,ERBB2,c.2318_2319dup,p.Y772_A775dup,insertion,Activating (TKI/HER2i-responsive),1,NM_004448.3
+ERBB2|S310F,ERBB2,c.928C>T,p.S310F,substitution,Functional,2,NM_004448.3
+ERBB2|L755S,ERBB2,c.2264T>C,p.L755S,substitution,Functional,2,NM_004448.3
+ERBB2|T798M,ERBB2,c.2393C>T,p.T798M,substitution,Resistance,2,NM_004448.3
+KRAS|G12C,KRAS,c.34G>T,p.G12C,substitution,Activating (sotorasib-responsive),1,NM_033360.4
+KRAS|G12V,KRAS,c.35G>T,p.G12V,substitution,Activating,1,NM_033360.4
+KRAS|G12D,KRAS,c.35G>A,p.G12D,substitution,Activating,1,NM_033360.4
+KRAS|G12A,KRAS,c.34G>C,p.G12A,substitution,Activating,1,NM_033360.4
+KRAS|G13D,KRAS,c.38G>A,p.G13D,substitution,Activating,1,NM_033360.4
+ALK|EML4-ALK,ALK,n/a,n/a,fusion,Activating (ALK inhibitor-responsive),1,NM_004304.4
+ALK|STRN-ALK,ALK,n/a,n/a,fusion,Activating,2,NM_004304.4
+ALK|TFG-ALK,ALK,n/a,n/a,fusion,Activating,2,NM_004304.4
+ALK|F1174L,ALK,c.3521A>C,p.F1174L,substitution,Sensitizing,2,NM_004304.4
+ALK|L1196M,ALK,c.3586C>A,p.L1196M,substitution,Resistance,2,NM_004304.4
+MET|exon_14_skipping,MET,c.2888+1G>A,p.[splice],splice_site,Activating (MET inhibitor-responsive),1,NM_000245.3
+MET|exon_14_deletion,MET,c.2888-10_3076+1del,p.splice,deletion,Activating,1,NM_000245.3
+MET|Y1230C,MET,c.3688A>G,p.Y1230C,substitution,Activating,2,NM_000245.3
+MET|R988C,MET,c.2963C>T,p.R988C,substitution,Functional,2,NM_000245.3

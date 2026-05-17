@@ -1,0 +1,20 @@
+canonical_id,evidence_source,evidence_id,evidence_title,evidence_type,url
+EGFR|exon_19_deletion,NCCN Guidelines,NCCN-NSCLC-2.2026,EGFR Exon 19 Deletion: Tier 1 evidence for Gefitinib/Erlotinib/Afatinib,guideline,https://www.nccn.org/
+EGFR|exon_19_deletion,ClinVar,RCV000045689,EGFR exon 19 deletion - Pathogenic,publication,https://www.ncbi.nlm.nih.gov/clinvar/
+EGFR|exon_19_deletion,CIViC,eid1234,EGFR exon 19 deletion predicts response to EGFR TKI,assertion,https://civicdb.org/
+EGFR|L858R,NCCN Guidelines,NCCN-NSCLC-2.2026,EGFR L858R: Tier 1 evidence for TKI therapy,guideline,https://www.nccn.org/
+EGFR|L858R,ClinVar,RCV000045701,EGFR L858R - Pathogenic,publication,https://www.ncbi.nlm.nih.gov/clinvar/
+EGFR|T790M,NCCN Guidelines,NCCN-NSCLC-2.2026,EGFR T790M: Resistance mutation (osimertinib responsive),guideline,https://www.nccn.org/
+EGFR|T790M,CIViC,eid2456,EGFR T790M confers resistance to EGFR TKI,assertion,https://civicdb.org/
+BRAF|V600E,NCCN Guidelines,NCCN-Melanoma-3.2026,BRAF V600E: Tier 1 evidence for BRAF inhibitors,guideline,https://www.nccn.org/
+BRAF|V600E,ClinVar,RCV000001234,BRAF V600E - Pathogenic,publication,https://www.ncbi.nlm.nih.gov/clinvar/
+BRAF|V600E,CIViC,eid5678,BRAF V600E sensitive to vemurafenib,assertion,https://civicdb.org/
+ERBB2|exon_20_insertion,NCCN Guidelines,NCCN-Breast-4.2026,HER2 Exon 20 Insertion: Tier 2 evidence for HER2 inhibitors,guideline,https://www.nccn.org/
+ERBB2|exon_20_insertion,CIViC,eid3456,HER2 exon 20 insertion predicts response to HER2i,assertion,https://civicdb.org/
+KRAS|G12C,NCCN Guidelines,NCCN-Lung-1.2026,KRAS G12C: Tier 1 for sotorasib in NSCLC,guideline,https://www.nccn.org/
+KRAS|G12C,ClinVar,RCV000004567,KRAS G12C - Pathogenic,publication,https://www.ncbi.nlm.nih.gov/clinvar/
+KRAS|G12C,CIViC,eid7890,KRAS G12C sensitive to sotorasib,assertion,https://civicdb.org/
+ALK|EML4-ALK,NCCN Guidelines,NCCN-Lung-1.2026,ALK fusion: Tier 1 evidence for ALK inhibitors,guideline,https://www.nccn.org/
+ALK|EML4-ALK,CIViC,eid2340,EML4-ALK fusion predicts response to ALK inhibitors,assertion,https://civicdb.org/
+MET|exon_14_skipping,NCCN Guidelines,NCCN-Lung-2.2026,MET exon 14 skipping: Tier 2 for MET inhibitors,guideline,https://www.nccn.org/
+MET|exon_14_skipping,CIViC,eid5678,MET exon 14 skipping predicts response to MET inhibitors,assertion,https://civicdb.org/

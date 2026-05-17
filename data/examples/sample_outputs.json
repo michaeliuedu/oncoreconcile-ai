@@ -1,0 +1,146 @@
+{
+  "examples": [
+    {
+      "reconciliation_id": "rec_20260517_001",
+      "input_variant": "EGFR Ex19del",
+      "status": "APPROVED",
+      "extraction": {
+        "gene": "EGFR",
+        "variant_type": "deletion",
+        "location": "exon_19",
+        "confidence": 0.95
+      },
+      "normalization": {
+        "canonical_variant_id": "EGFR|exon_19_deletion",
+        "hgvs_dna": "c.2235_2249del15",
+        "hgvs_protein": "p.E746_A750del",
+        "transcript": "NM_005228.4",
+        "gene_hgnc_id": 3236
+      },
+      "retrieval": {
+        "canonical_match": true,
+        "kb_entry_id": "var_egfr_001",
+        "candidates_found": 3,
+        "clinical_evidence_count": 3
+      },
+      "reasoning": {
+        "clinical_summary": "EGFR exon 19 deletion is a hallmark sensitizing mutation in lung adenocarcinoma. Associated with high response rates to EGFR kinase inhibitors (Gefitinib, Erlotinib, Afatinib). Tier 1 evidence per NCCN guidelines.",
+        "llm_confidence": 0.96,
+        "recommendation": "HIGH CONFIDENCE. Recommend approval for KB update."
+      },
+      "confidence": {
+        "composite_score": 0.98,
+        "breakdown": {
+          "deterministic": 1.0,
+          "semantic_similarity": 0.99,
+          "llm_reasoning": 0.96,
+          "historical_approval": 0.98
+        },
+        "category": "Very High"
+      },
+      "review": {
+        "review_id": "rev_20260517_001",
+        "queue": "fast_track",
+        "assigned_to": ["Dr. Sarah Chen, MD PhD"],
+        "priority": "standard",
+        "estimated_review_time_minutes": 3
+      },
+      "approval": {
+        "decision": "APPROVED",
+        "reviewer_id": "dr_chen",
+        "reviewer_name": "Dr. Sarah Chen, MD PhD",
+        "approval_timestamp": "2026-05-17T14:38:45Z",
+        "curation_notes": "Clinically validated sensitizing mutation. Aligns with current NCCN guidelines (Tier 1 evidence). Strong literature support (156 prior approvals, 0 rejections). Ready for knowledge base integration."
+      },
+      "kb_update": {
+        "update_id": "upd_20260517_001",
+        "kb_version_before": "0.1",
+        "kb_version_after": "0.1.1",
+        "update_type": "ADD_ALIAS",
+        "change": "Added 'EGFR Ex19del' as alias for EGFR|exon_19_deletion"
+      },
+      "audit_trail": {
+        "created_at": "2026-05-17T14:32:00Z",
+        "extracted_at": "2026-05-17T14:32:01Z",
+        "normalized_at": "2026-05-17T14:33:00Z",
+        "retrieved_at": "2026-05-17T14:33:30Z",
+        "reasoned_at": "2026-05-17T14:34:30Z",
+        "scored_at": "2026-05-17T14:35:00Z",
+        "reviewed_at": "2026-05-17T14:38:45Z",
+        "approved_at": "2026-05-17T14:38:46Z",
+        "kb_updated_at": "2026-05-17T14:38:47Z"
+      }
+    },
+    {
+      "reconciliation_id": "rec_20260517_002",
+      "input_variant": "KRAS G12C",
+      "status": "APPROVED",
+      "extraction": {
+        "gene": "KRAS",
+        "variant_type": "substitution",
+        "location": "codon_12",
+        "confidence": 0.98
+      },
+      "normalization": {
+        "canonical_variant_id": "KRAS|G12C",
+        "hgvs_dna": "c.34G>T",
+        "hgvs_protein": "p.G12C",
+        "transcript": "NM_033360.4",
+        "gene_hgnc_id": 6407
+      },
+      "retrieval": {
+        "canonical_match": true,
+        "kb_entry_id": "var_kras_001",
+        "candidates_found": 1,
+        "clinical_evidence_count": 5
+      },
+      "reasoning": {
+        "clinical_summary": "KRAS G12C is a targetable hotspot mutation in non-small cell lung cancer (NSCLC). FDA-approved sotorasib (Lumakras) and adagrasib provide durable clinical responses. NCCN Tier 1 recommendation for NSCLC patients.",
+        "llm_confidence": 0.97,
+        "recommendation": "Excellent match with strong clinical evidence. Immediate eligibility for sotorasib/adagrasib therapy screening."
+      },
+      "confidence": {
+        "composite_score": 0.97,
+        "breakdown": {
+          "deterministic": 1.0,
+          "semantic_similarity": 0.98,
+          "llm_reasoning": 0.97,
+          "historical_approval": 0.93
+        },
+        "category": "Very High"
+      },
+      "review": {
+        "review_id": "rev_20260517_002",
+        "queue": "fast_track",
+        "assigned_to": ["Dr. James Kim, PhD"],
+        "priority": "high",
+        "estimated_review_time_minutes": 2
+      },
+      "approval": {
+        "decision": "APPROVED",
+        "reviewer_id": "dr_kim",
+        "reviewer_name": "Dr. James Kim, PhD",
+        "approval_timestamp": "2026-05-17T15:05:30Z",
+        "curation_notes": "Perfect match. KRAS G12C is clinically validated and actionable. FDA-approved therapy available (sotorasib). Ready for clinical integration and treatment planning."
+      },
+      "kb_update": {
+        "update_id": "upd_20260517_002",
+        "kb_version_before": "0.1.1",
+        "kb_version_after": "0.1.2",
+        "update_type": "UPDATE_EVIDENCE",
+        "change": "Updated evidence links to include latest FDA approvals for sotorasib (2021)"
+      },
+      "audit_trail": {
+        "created_at": "2026-05-17T14:50:00Z",
+        "extracted_at": "2026-05-17T14:50:05Z",
+        "normalized_at": "2026-05-17T14:51:00Z",
+        "retrieved_at": "2026-05-17T14:51:20Z",
+        "reasoned_at": "2026-05-17T14:52:00Z",
+        "scored_at": "2026-05-17T14:52:30Z",
+        "reviewed_at": "2026-05-17T15:05:30Z",
+        "approved_at": "2026-05-17T15:05:31Z",
+        "kb_updated_at": "2026-05-17T15:05:32Z"
+      }
+    }
+  ]
+}

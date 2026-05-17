@@ -1,0 +1,21 @@
+gene_input,canonical_gene,hgnc_id,entrez_id,description
+EGFR,EGFR,3236,1956,Epidermal Growth Factor Receptor
+EGF,EGFR,3236,1956,Alias for EGFR
+HER1,EGFR,3236,1956,Historical name for EGFR
+ERBB,EGFR,3236,1956,erbB family member
+BRAF,BRAF,1097,673,B-Raf Proto-Oncogene
+BRAF1,BRAF,1097,673,Alias for BRAF
+B-RAF,BRAF,1097,673,Hyphenated BRAF
+ERBB2,ERBB2,3236,2064,Human Epidermal Growth Factor Receptor 2
+HER2,ERBB2,3236,2064,Clinical name for ERBB2
+NEU,ERBB2,3236,2064,Alternative name for ERBB2
+ERBB2/HER2,ERBB2,3236,2064,Combined nomenclature
+KRAS,KRAS,6407,3845,Kirsten Rat Sarcoma Viral Oncogene Homolog
+KRAS1,KRAS,6407,3845,Alias for KRAS
+K-RAS,KRAS,6407,3845,Hyphenated KRAS
+ALK,ALK,427,238,Anaplastic Lymphoma Kinase
+ALK1,ALK,427,238,Alias for ALK
+CD246,ALK,427,238,CD antigen for ALK
+MET,MET,6973,4233,MET Proto-Oncogene
+MET1,MET,6973,4233,Alias for MET
+HGFR,MET,6973,4233,Hepatocyte Growth Factor Receptor
