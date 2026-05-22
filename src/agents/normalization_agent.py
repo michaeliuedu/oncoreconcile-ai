@@ -182,7 +182,12 @@ class GeneReconciliationAgent:
 class VariantNormalizer:
     """Normalize variants to canonical HGVS nomenclature"""
 
-    def __init__(self, transcript_data: Optional[Dict] = None):
+    def __init__(
+        self,
+        transcript_data: Optional[Dict] = None,
+        variant_synonyms_path: Optional[str] = None,
+        canonical_variants_path: Optional[str] = None,
+    ):
         """Initialize with transcript reference data"""
         # Default transcripts for MVP
         self.transcripts = {
@@ -206,9 +211,91 @@ class VariantNormalizer:
             "MET": {
                 "primary": "NM_000245.3",
             },
+            "ROS1": {
+                "primary": "unknown",
+            },
+            "RET": {
+                "primary": "unknown",
+            },
+            "TP53": {
+                "primary": "NM_000546.6",
+            },
         }
         if transcript_data:
             self.transcripts.update(transcript_data)
+
+        self.canonical_variants: Dict[str, Dict[str, Any]] = {}
+        self.variant_synonym_map: Dict[tuple[str, str], str] = {}
+        self._load_canonical_variants(canonical_variants_path)
+        self._load_variant_synonyms(variant_synonyms_path)
+
+    @staticmethod
+    def _reference_path(filename: str) -> Path:
+        """Return a file path under the repository reference data directory"""
+        return (
+            Path(__file__).resolve().parents[2]
+            / "data"
+            / "reference"
+            / "v0.1"
+            / filename
+        )
+
+    @staticmethod
+    def _normalize_lookup_text(value: str) -> str:
+        """Normalize variant text for deterministic synonym lookup"""
+        return " ".join(value.upper().replace("::", "-").replace("_", " ").split())
+
+    def _load_canonical_variants(self, canonical_variants_path: Optional[str] = None) -> None:
+        """Load canonical variant metadata from the reference CSV"""
+        path = Path(canonical_variants_path) if canonical_variants_path else self._reference_path("canonical_variants.csv")
+        if not path.exists():
+            return
+
+        with path.open(newline="") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                self.canonical_variants[row["canonical_id"]] = row
+
+    def _load_variant_synonyms(self, variant_synonyms_path: Optional[str] = None) -> None:
+        """Load variant synonyms from the reference CSV"""
+        path = Path(variant_synonyms_path) if variant_synonyms_path else self._reference_path("variant_synonyms.csv")
+        if not path.exists():
+            return
+
+        with path.open(newline="") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                gene = row["canonical_id"].split("|")[0]
+                synonym_key = self._normalize_lookup_text(row["synonym"])
+                canonical_key = self._normalize_lookup_text(row["canonical_id"].replace("|", " "))
+                self.variant_synonym_map[(gene, synonym_key)] = row["canonical_id"]
+                self.variant_synonym_map[(gene, canonical_key)] = row["canonical_id"]
+
+    def _lookup_variant(self, gene: str, location: str) -> Optional[Dict[str, Any]]:
+        """Look up a variant by gene and raw/synonym text"""
+        gene = gene.upper().strip()
+        lookup_candidates = [
+            location,
+            f"{gene} {location}",
+            location.replace("|", " "),
+        ]
+
+        for candidate in lookup_candidates:
+            canonical_id = self.variant_synonym_map.get(
+                (gene, self._normalize_lookup_text(candidate))
+            )
+            if canonical_id:
+                metadata = self.canonical_variants.get(canonical_id, {})
+                return {
+                    "canonical_id": canonical_id,
+                    "hgvs_dna": metadata.get("hgvs_dna", "unknown"),
+                    "hgvs_protein": metadata.get("hgvs_protein", "unknown"),
+                    "transcript": metadata.get("transcript", self.transcripts.get(gene, {}).get("primary", "unknown")),
+                    "confidence": 0.97,
+                    "match_type": "synonym",
+                }
+
+        return None
 
     def normalize_variant(
         self,
@@ -228,6 +315,10 @@ class VariantNormalizer:
             Dictionary with normalized variant info
         """
         transcript = self.transcripts.get(gene, {}).get("primary", "unknown")
+
+        synonym_match = self._lookup_variant(gene, location)
+        if synonym_match:
+            return synonym_match
         
         # Map common variants to canonical forms
         if gene == "EGFR" and variant_type == "deletion" and "19" in location:

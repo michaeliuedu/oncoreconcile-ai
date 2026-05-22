@@ -1,0 +1,13 @@
+raw_gene,normalized_gene,source,evidence_note
+HER2,ERBB2,HGNC,HER2 is a commonly used alias for ERBB2
+ERBB-2,ERBB2,HGNC,Hyphenated alias maps to ERBB2
+EGFR,EGFR,HGNC,Approved gene symbol
+KRAS,KRAS,HGNC,Approved gene symbol
+BRAF,BRAF,HGNC,Approved gene symbol
+ALK,ALK,HGNC,Approved gene symbol
+ROS-1,ROS1,HGNC,Hyphenated alias maps to ROS1
+ROS1,ROS1,HGNC,Approved gene symbol
+MET,MET,HGNC,Approved gene symbol
+RET,RET,HGNC,Approved gene symbol
+P53,TP53,HGNC/common_alias,Common alias maps to TP53
+TP53,TP53,HGNC,Approved gene symbol

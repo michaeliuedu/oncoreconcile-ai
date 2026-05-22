@@ -10,6 +10,7 @@ ERBB2,ERBB2,3236,2064,Human Epidermal Growth Factor Receptor 2
 HER2,ERBB2,3236,2064,Clinical name for ERBB2
 NEU,ERBB2,3236,2064,Alternative name for ERBB2
 ERBB2/HER2,ERBB2,3236,2064,Combined nomenclature
+ERBB-2,ERBB2,3236,2064,Hyphenated alias for ERBB2
 KRAS,KRAS,6407,3845,Kirsten Rat Sarcoma Viral Oncogene Homolog
 KRAS1,KRAS,6407,3845,Alias for KRAS
 K-RAS,KRAS,6407,3845,Hyphenated KRAS
@@ -19,3 +20,8 @@ CD246,ALK,427,238,CD antigen for ALK
 MET,MET,6973,4233,MET Proto-Oncogene
 MET1,MET,6973,4233,Alias for MET
 HGFR,MET,6973,4233,Hepatocyte Growth Factor Receptor
+ROS1,ROS1,10261,6098,ROS Proto-Oncogene 1 Receptor Tyrosine Kinase
+ROS-1,ROS1,10261,6098,Hyphenated alias for ROS1
+RET,RET,9967,5979,Ret Proto-Oncogene
+TP53,TP53,11998,7157,Tumor Protein P53
+P53,TP53,11998,7157,Common alias for TP53

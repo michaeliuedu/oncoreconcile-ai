@@ -1,0 +1,267 @@
+{
+  "EGFR::p.E746_A750del": {
+    "gene": "EGFR",
+    "canonical_variant": "p.E746_A750del",
+    "variant_category": "deletion",
+    "hgvs_c": "c.2235_2249del",
+    "aliases": [
+      "Ex19del",
+      "exon 19 deletion",
+      "EGFR Ex19del",
+      "activating EGFR deletion",
+      "c.2235_2249del",
+      "p.E746_A750del"
+    ],
+    "evidence": {
+      "hgnc": "Use HGNC approved symbol for gene normalization",
+      "hgvs": "Use HGVS-style protein/coding notation where applicable",
+      "clinvar_hint": "Pathogenic/Likely pathogenic reported for EGFR exon 19 deletion representations",
+      "civic_hint": "Predictive biomarker for sensitivity to EGFR tyrosine kinase inhibitors in NSCLC"
+    },
+    "drug_association_hint": "osimertinib; erlotinib; gefitinib",
+    "clinical_significance_hint": "pathogenic/actionable",
+    "review_rule": "human_review_if_generic_exon19del"
+  },
+  "EGFR::p.Leu858Arg": {
+    "gene": "EGFR",
+    "canonical_variant": "p.Leu858Arg",
+    "variant_category": "SNV",
+    "hgvs_c": "c.2573T>G",
+    "aliases": [
+      "L858R",
+      "p.L858R",
+      "p.Leu858Arg",
+      "c.2573T>G",
+      "EGFR L858R"
+    ],
+    "evidence": {
+      "hgnc": "Use HGNC approved symbol for gene normalization",
+      "hgvs": "Use HGVS-style protein/coding notation where applicable",
+      "clinvar_hint": "Pathogenic EGFR activating mutation",
+      "civic_hint": "Predictive biomarker for EGFR inhibitor sensitivity in NSCLC"
+    },
+    "drug_association_hint": "osimertinib",
+    "clinical_significance_hint": "pathogenic/actionable",
+    "review_rule": "auto"
+  },
+  "EGFR::p.Thr790Met": {
+    "gene": "EGFR",
+    "canonical_variant": "p.Thr790Met",
+    "variant_category": "SNV",
+    "hgvs_c": "c.2369C>T",
+    "aliases": [
+      "T790M",
+      "p.T790M",
+      "p.Thr790Met",
+      "c.2369C>T",
+      "EGFR resistance mutation"
+    ],
+    "evidence": {
+      "hgnc": "Use HGNC approved symbol for gene normalization",
+      "hgvs": "Use HGVS-style protein/coding notation where applicable",
+      "clinvar_hint": "EGFR T790M reported as clinically significant resistance mutation",
+      "civic_hint": "Resistance biomarker for earlier-generation EGFR inhibitors; targetable by osimertinib"
+    },
+    "drug_association_hint": "osimertinib",
+    "clinical_significance_hint": "resistance/actionable",
+    "review_rule": "auto"
+  },
+  "KRAS::p.Gly12Cys": {
+    "gene": "KRAS",
+    "canonical_variant": "p.Gly12Cys",
+    "variant_category": "SNV",
+    "hgvs_c": "c.34G>T",
+    "aliases": [
+      "G12C",
+      "p.G12C",
+      "p.Gly12Cys",
+      "c.34G>T",
+      "KRAS G12C"
+    ],
+    "evidence": {
+      "hgnc": "Use HGNC approved symbol for gene normalization",
+      "hgvs": "Use HGVS-style protein/coding notation where applicable",
+      "clinvar_hint": "KRAS G12C reported as pathogenic/oncogenic in cancer contexts",
+      "civic_hint": "Predictive biomarker for KRAS G12C inhibitors in NSCLC"
+    },
+    "drug_association_hint": "sotorasib; adagrasib",
+    "clinical_significance_hint": "oncogenic/actionable",
+    "review_rule": "auto"
+  },
+  "KRAS::p.Gly12Asp": {
+    "gene": "KRAS",
+    "canonical_variant": "p.Gly12Asp",
+    "variant_category": "SNV",
+    "hgvs_c": "c.35G>A",
+    "aliases": [
+      "G12D",
+      "p.G12D",
+      "p.Gly12Asp",
+      "c.35G>A",
+      "KRAS gly12asp"
+    ],
+    "evidence": {
+      "hgnc": "Use HGNC approved symbol for gene normalization",
+      "hgvs": "Use HGVS-style protein/coding notation where applicable",
+      "clinvar_hint": "KRAS G12D reported as oncogenic/pathogenic in cancer contexts",
+      "civic_hint": "Oncogenic driver; treatment evidence depends on tumor context and trial availability"
+    },
+    "drug_association_hint": "clinical trial context",
+    "clinical_significance_hint": "oncogenic",
+    "review_rule": "auto"
+  },
+  "BRAF::p.Val600Glu": {
+    "gene": "BRAF",
+    "canonical_variant": "p.Val600Glu",
+    "variant_category": "SNV",
+    "hgvs_c": "c.1799T>A",
+    "aliases": [
+      "V600E",
+      "p.V600E",
+      "p.Val600Glu",
+      "c.1799T>A",
+      "BRAF V600E"
+    ],
+    "evidence": {
+      "hgnc": "Use HGNC approved symbol for gene normalization",
+      "hgvs": "Use HGVS-style protein/coding notation where applicable",
+      "clinvar_hint": "BRAF V600E reported as pathogenic/oncogenic",
+      "civic_hint": "Predictive biomarker for BRAF/MEK inhibitor sensitivity in selected cancers including NSCLC"
+    },
+    "drug_association_hint": "dabrafenib + trametinib",
+    "clinical_significance_hint": "oncogenic/actionable",
+    "review_rule": "auto"
+  },
+  "ALK::ALK fusion": {
+    "gene": "ALK",
+    "canonical_variant": "ALK fusion",
+    "variant_category": "fusion",
+    "hgvs_c": "NA",
+    "aliases": [
+      "ALK rearrangement",
+      "EML4-ALK",
+      "ALK fusion",
+      "ALK positive",
+      "EML4::ALK"
+    ],
+    "evidence": {
+      "hgnc": "Use HGNC approved symbol for gene normalization",
+      "hgvs": "Use HGVS-style protein/coding notation where applicable",
+      "clinvar_hint": "Structural fusion evidence may be assay/report based rather than simple SNV ClinVar record",
+      "civic_hint": "Predictive biomarker for ALK inhibitor sensitivity in NSCLC"
+    },
+    "drug_association_hint": "alectinib; crizotinib; lorlatinib",
+    "clinical_significance_hint": "fusion/actionable",
+    "review_rule": "human_review_for_partner"
+  },
+  "ROS1::ROS1 fusion": {
+    "gene": "ROS1",
+    "canonical_variant": "ROS1 fusion",
+    "variant_category": "fusion",
+    "hgvs_c": "NA",
+    "aliases": [
+      "ROS1 rearrangement",
+      "ROS1 fusion",
+      "CD74-ROS1",
+      "CD74::ROS1",
+      "ROS1 positive"
+    ],
+    "evidence": {
+      "hgnc": "Use HGNC approved symbol for gene normalization",
+      "hgvs": "Use HGVS-style protein/coding notation where applicable",
+      "clinvar_hint": "Fusion evidence often comes from clinical report/knowledgebase rather than SNV record",
+      "civic_hint": "Predictive biomarker for ROS1 inhibitor sensitivity in NSCLC"
+    },
+    "drug_association_hint": "crizotinib; entrectinib",
+    "clinical_significance_hint": "fusion/actionable",
+    "review_rule": "human_review_for_partner"
+  },
+  "MET::MET exon 14 skipping": {
+    "gene": "MET",
+    "canonical_variant": "MET exon 14 skipping",
+    "variant_category": "splice",
+    "hgvs_c": "various splice-site alterations",
+    "aliases": [
+      "METex14",
+      "MET exon 14 skipping",
+      "MET exon14 skip",
+      "MET splice exon 14",
+      "MET exon 14 deletion"
+    ],
+    "evidence": {
+      "hgnc": "Use HGNC approved symbol for gene normalization",
+      "hgvs": "Use HGVS-style protein/coding notation where applicable",
+      "clinvar_hint": "MET exon 14 skipping can arise from multiple splice-region variants",
+      "civic_hint": "Predictive biomarker for MET inhibitor sensitivity in NSCLC"
+    },
+    "drug_association_hint": "capmatinib; tepotinib",
+    "clinical_significance_hint": "splice/actionable",
+    "review_rule": "human_review_due_to_multiple_variants"
+  },
+  "ERBB2::ERBB2 amplification": {
+    "gene": "ERBB2",
+    "canonical_variant": "ERBB2 amplification",
+    "variant_category": "amplification",
+    "hgvs_c": "copy number gain",
+    "aliases": [
+      "HER2 amplification",
+      "ERBB2 amp",
+      "HER2 amp",
+      "ERBB-2 amplification",
+      "ERBB2 amplification"
+    ],
+    "evidence": {
+      "hgnc": "Use HGNC approved symbol for gene normalization",
+      "hgvs": "Use HGVS-style protein/coding notation where applicable",
+      "clinvar_hint": "Copy-number evidence usually assay/report based",
+      "civic_hint": "ERBB2/HER2 alteration may support HER2-targeted therapy evidence depending on context"
+    },
+    "drug_association_hint": "trastuzumab deruxtecan context",
+    "clinical_significance_hint": "copy_number/actionable_contextual",
+    "review_rule": "auto_gene_alias_needed"
+  },
+  "RET::RET fusion": {
+    "gene": "RET",
+    "canonical_variant": "RET fusion",
+    "variant_category": "fusion",
+    "hgvs_c": "NA",
+    "aliases": [
+      "RET rearrangement",
+      "KIF5B-RET",
+      "KIF5B::RET",
+      "RET fusion",
+      "RET positive"
+    ],
+    "evidence": {
+      "hgnc": "Use HGNC approved symbol for gene normalization",
+      "hgvs": "Use HGVS-style protein/coding notation where applicable",
+      "clinvar_hint": "Fusion evidence often comes from report/knowledgebase",
+      "civic_hint": "Predictive biomarker for RET inhibitor sensitivity in NSCLC"
+    },
+    "drug_association_hint": "selpercatinib; pralsetinib",
+    "clinical_significance_hint": "fusion/actionable",
+    "review_rule": "human_review_for_partner"
+  },
+  "TP53::p.Arg175His": {
+    "gene": "TP53",
+    "canonical_variant": "p.Arg175His",
+    "variant_category": "SNV",
+    "hgvs_c": "c.524G>A",
+    "aliases": [
+      "R175H",
+      "p.R175H",
+      "p.Arg175His",
+      "c.524G>A",
+      "TP53 R175H"
+    ],
+    "evidence": {
+      "hgnc": "Use HGNC approved symbol for gene normalization",
+      "hgvs": "Use HGVS-style protein/coding notation where applicable",
+      "clinvar_hint": "TP53 R175H reported as pathogenic in cancer predisposition/somatic contexts",
+      "civic_hint": "Common tumor suppressor mutation; prognostic/contextual rather than direct targeted therapy"
+    },
+    "drug_association_hint": "none standard",
+    "clinical_significance_hint": "pathogenic/contextual",
+    "review_rule": "auto"
+  }
+}
