@@ -7,7 +7,8 @@ Below is a high-level diagram of the MVP, showing the true status of each featur
 
 ```mermaid
 graph TD
-    A[User Uploads CSV via UI #7]:::partial --> B[Streamlit Frontend #7 #8]:::done
+    Z[Demo CSV Dataset #2]:::done --> A[User Uploads CSV via UI #7]:::partial
+    A --> B[Streamlit Frontend #7 #8]:::done
     B --> C[API Batch Reconciliation Endpoint #3]:::partial
     C --> D[Agents Normalization Confidence Reasoning #4 #5]:::done
     D --> E[Canonical Output Schema #1]:::done
@@ -25,11 +26,22 @@ graph TD
     classDef next fill:#ffe599,stroke:#333,stroke-width:2px;
     classDef future fill:#f4cccc,stroke:#333,stroke-width:2px;
 
-    class B,D,E,F done;
+    class Z,B,D,E,F done;
     class A,C,I partial;
     class G,H,J,K next;
     class L future;
 ```
+## 1a. Issues That Can Be Started Without Blockers
+
+The following issues can be started immediately (no dependencies):
+
+- **#1: Define canonical reconciliation output schema**
+- **#2: Create curated demo CSV dataset**
+- **#4: Add explicit reconciliation status logic**
+- **#9: Add API documentation and local runbook**
+- **#11: Prepare pitch deck outline**
+
+Once #1 and #2 are done, #3 (batch endpoint) can begin. See the main meeting agenda for a full dependency table.
 
 - **Green:** Complete or MVP-ready (current week)
 - **Yellow:** Partial/in progress (needs work for full MVP)
