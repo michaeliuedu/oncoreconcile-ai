@@ -10,6 +10,7 @@ Recommended duration: 60 minutes
 
 - [Competition Submission Proposal](../proposal/competition_submission_proposal.md)
 - [Weekly Execution Plan](../project_plan/weekly_execution_plan.md)
+- [Architecture and Task Map](../architecture/task_mapped_architecture.md)
 - [Team Task Board](../project_plan/team_task_board.md)
 - [GitHub Issue Backlog](../project_plan/github_issue_backlog.md)
 - [Starter Data Integration Notes](../architecture/starter_data_integration.md)
@@ -18,6 +19,7 @@ Recommended duration: 60 minutes
 
 - [Competition Proposal Google Doc](https://docs.google.com/document/d/18LXDOTTN-USMY87vyVr84RbKx4wY-iaYbksnUknI1Ck)
 - [Weekly Execution Plan Google Doc](https://docs.google.com/document/d/1I87vM56YUbo4yRGR3Oh8VajytwmxDaEeYoP-ltOS_pM)
+- [Architecture and Task Map Google Doc](https://docs.google.com/document/d/1Ncew1t2lttX8mV2B5njBXqNFL4tie5-Wyizzx5ktPbA)
 
 ### GitHub
 
@@ -79,6 +81,8 @@ Use:
 
 - [Repository](https://github.com/michaeliuedu/oncoreconcile-ai)
 - [Branch: gene-reconciliation](https://github.com/michaeliuedu/oncoreconcile-ai/tree/gene-reconciliation)
+- [Architecture and Task Map](../architecture/task_mapped_architecture.md)
+- [Architecture and Task Map Google Doc](https://docs.google.com/document/d/1Ncew1t2lttX8mV2B5njBXqNFL4tie5-Wyizzx5ktPbA)
 
 Show:
 
@@ -90,6 +94,7 @@ Show:
 - Streamlit frontend
 - project planning docs
 - GitHub issues
+- how each GitHub issue maps to the architecture layer it improves
 
 Suggested command for local setup:
 
@@ -127,6 +132,7 @@ Use:
 - [Open Issues](https://github.com/michaeliuedu/oncoreconcile-ai/issues)
 - [Team Task Board](../project_plan/team_task_board.md)
 - [Weekly Execution Plan](../project_plan/weekly_execution_plan.md)
+- [Architecture and Task Map](../architecture/task_mapped_architecture.md)
 
 Ask each coding contributor to pick:
 
