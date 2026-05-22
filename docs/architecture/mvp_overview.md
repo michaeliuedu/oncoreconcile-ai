@@ -56,21 +56,21 @@ Once #1, #2, and #4 were completed, #3 (batch endpoint) became unblocked. See th
 
 ## 2. Feature Status Details
 
-| Feature                                 | Status    | Details | Issue(s) |
-|------------------------------------------|-----------|---------|----------|
-| User Uploads CSV via UI                  | Partial   | Only single variant input via text; CSV upload not yet implemented | #7 |
-| Streamlit Frontend                       | Ready     | All main UI pages present; single variant input, review queue, audit log | #7, #8 |
-| API: Batch Reconciliation Endpoint       | Partial   | Only single variant per request; batch endpoint not yet implemented | #3 |
-| Agents: Normalization, Confidence, Reasoning | Ready | Full pipeline for single variant; multi-agent orchestration | #4, #5 |
-| Canonical Output Schema                  | Complete  | Pydantic models in place for all outputs. Feature implemented and MVP-ready. Team review welcome. | #1 |
-| Demo CSV Dataset                         | Complete  | Curated demo CSVs in place. Feature implemented and MVP-ready. Team review welcome. | #2 |
-| Status Logic                             | Complete  | Status set by workflow/confidence agent. Feature implemented and MVP-ready. Team review welcome. | #4, #5 |
-| Download/View Results in UI              | Partial   | Results shown in UI; no explicit download button | #7 |
-| Audit Log & Provenance                   | Next      | Audit log and provenance tracking planned | #6 |
-| Review Queue                             | Next      | Review queue backend and UI planned | #8 |
-| Human Review Workflow                    | Next      | Human review workflow planned | #8 |
-| Audit Trail Display                      | Next      | Audit trail display in UI planned | #6 |
-| Demo Dashboard                           | Future    | Dashboard/summary views, test cases | #10, #12 |
+| Feature                                 | Status    | Details | Issue(s) | Blocker(s) | Plug-in Point |
+|------------------------------------------|-----------|---------|----------|------------|---------------|
+| User Uploads CSV via UI                  | Partial   | Only single variant input via text; CSV upload not yet implemented | #7 | #3 | After #3 merged, connect UI to batch endpoint |
+| Streamlit Frontend                       | Ready     | All main UI pages present; single variant input, review queue, audit log | #7, #8 |  |  |
+| API: Batch Reconciliation Endpoint       | Partial   | Only single variant per request; batch endpoint not yet implemented | #3 | #1, #2 | After #1, #2 merged, update endpoint/tests |
+| Agents: Normalization, Confidence, Reasoning | Ready | Full pipeline for single variant; multi-agent orchestration | #4, #5 |  |  |
+| Canonical Output Schema                  | Complete  | Pydantic models in place for all outputs. Feature implemented and MVP-ready. Team review welcome. | #1 |  |  |
+| Demo CSV Dataset                         | Complete  | Curated demo CSVs in place. Feature implemented and MVP-ready. Team review welcome. | #2 |  |  |
+| Status Logic                             | Complete  | Status set by workflow/confidence agent. Feature implemented and MVP-ready. Team review welcome. | #4, #5 |  |  |
+| Download/View Results in UI              | Partial   | Results shown in UI; no explicit download button | #7 | #3 | After #3 merged, connect UI to batch endpoint |
+| Audit Log & Provenance                   | Next      | Audit log and provenance tracking planned | #6 | #1, #4 | After #1, #4 merged, update schema |
+| Review Queue                             | Next      | Review queue backend and UI planned | #8 | #4, #6 | After #4, #6 merged, connect UI/backend |
+| Human Review Workflow                    | Next      | Human review workflow planned | #8 | #4, #6 | After #4, #6 merged, connect UI/backend |
+| Audit Trail Display                      | Next      | Audit trail display in UI planned | #6 | #1, #4 | After #1, #4 merged, update schema |
+| Demo Dashboard                           | Future    | Dashboard/summary views, test cases | #10, #12 | #2, #3, #7 | After #2, #3, #7 merged, finalize dashboard |
 
 ## 3. What’s Next (Next Week)
 - Audit log and provenance tracking

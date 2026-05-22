@@ -36,15 +36,15 @@ Team members are encouraged to proceed proactively:
 
 ### Blocked Issues: When Can They Start?
 
-| Issue | Can Start When... | Early Prep/Backlog Ideas |
-|-------|-------------------|-------------------------|
-| #3    | #1 & #2 done      | API/test scaffolding    |
-| #5    | #4 done           | Uncertainty test cases  |
-| #6    | #1 & #4 done      | Audit log design/tests  |
-| #7    | #3 done           | UI wireframes           |
-| #8    | #4 & #6 done      | UI/UX planning          |
-| #10   | #2 done           | Outline/case notes      |
-| #12   | #3 & #7 done      | Checklist template      |
+| Issue | Can Start When... | Early Prep/Backlog Ideas | How to Resolve Blocker | When/How to Plug In |
+|-------|-------------------|-------------------------|------------------------|---------------------|
+| #3    | #1 & #2 done      | API/test scaffolding    | Merge #1 and #2, update endpoint/tests to real schema/data | Rebase, integrate, test, PR |
+| #5    | #4 done           | Uncertainty test cases  | Merge #4, update logic to new status codes | Integrate, test, PR |
+| #6    | #1 & #4 done      | Audit log design/tests  | Merge #1 and #4, update schema to canonical output/status | Integrate, test, PR |
+| #7    | #3 done           | UI wireframes           | Merge #3, connect UI to batch endpoint | Integrate, test, PR |
+| #8    | #4 & #6 done      | UI/UX planning          | Merge #4 and #6, connect UI to review queue/audit log | Integrate, test, PR |
+| #10   | #2 done           | Outline/case notes      | Merge #2, use real demo data | Finalize doc, PR |
+| #12   | #3 & #7 done      | Checklist template      | Merge #3 and #7, update checklist/scripts for real flows | Integrate, test, PR |
 
 As soon as a dependency is finished, the blocked issue can be started—no need to wait for the next sprint. Team members can also work on backlog or support tasks while waiting. This keeps everyone productive and the project moving forward.
 # First Team Meeting Agenda
