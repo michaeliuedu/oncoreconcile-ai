@@ -218,3 +218,41 @@ By the end of the meeting:
 ## Closing Message
 
 > Our north star is a narrow, polished demo: upload messy oncology mutation examples, reconcile gene and variant names, show confidence and status, route uncertain cases to review, and preserve an audit trail. If we can do that clearly, we will have a strong competition project.
+
+
+## Best Practices for Collaboration & Repo Stability
+
+**Branching Strategy:**
+- Each feature, bugfix, or task should have its own branch (e.g., `feature/xyz`, `bugfix/abc`).
+- Work independently on branches; keep `master`/`main` stable.
+
+**Frequent Commits & Pull Requests:**
+- Make small, frequent commits with clear messages.
+- Open pull requests (PRs) for review before merging to the main branch.
+
+**Code Review:**
+- Review each other’s PRs for code quality, logic, and style.
+- Check for potential bugs, test coverage, and documentation.
+
+**Automated Testing:**
+- Run tests automatically (CI/CD) on every PR to catch issues early.
+- Only merge PRs that pass all tests.
+
+**Continuous Integration:**
+- Use CI tools (e.g., GitHub Actions) to build, lint, and test the codebase on every push/PR.
+- Ensure the main branch is always deployable.
+
+**Documentation & Communication:**
+- Update documentation as features are added or changed.
+- Use issues, project boards, and regular meetings to coordinate work and track progress.
+
+**Regular Syncs:**
+- Rebase or merge the latest master into feature branches frequently to avoid conflicts.
+- Hold short standups or async check-ins to keep everyone aligned.
+
+**Additional Tips for Starting Collaboration:**
+- Agree on coding style and formatting (consider using linters/formatters).
+- Set up local environments and run all tests before starting work.
+- Communicate blockers or questions early—don’t get stuck alone.
+- Respect scope: avoid adding features or making large changes without team discussion.
+- Celebrate small wins and help each other learn!
