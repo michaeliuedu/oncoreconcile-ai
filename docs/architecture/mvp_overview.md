@@ -7,18 +7,18 @@ Below is a high-level diagram of the MVP, showing the true status of each featur
 
 ```mermaid
 graph TD
-    A[User Uploads CSV via UI (#7)]:::partial --> B[Streamlit Frontend (#7, #8)]:::done
-    B --> C[API: Batch Reconciliation Endpoint (#3)]:::partial
-    C --> D[Agents: Normalization, Confidence, Reasoning (#4, #5)]:::done
-    D --> E[Canonical Output Schema (#1)]:::done
-    D --> F[Status Logic: reconciled, needs_review, cannot_reconcile (#4, #5)]:::done
-    D --> G[Audit Log & Provenance (#6)]:::next
-    D --> H[Review Queue (#8)]:::next
-    E --> I[Download/View Results in UI (#7)]:::partial
-    H --> J[Human Review Workflow (#8)]:::next
+    A[User Uploads CSV via UI #7]:::partial --> B[Streamlit Frontend #7 #8]:::done
+    B --> C[API Batch Reconciliation Endpoint #3]:::partial
+    C --> D[Agents Normalization Confidence Reasoning #4 #5]:::done
+    D --> E[Canonical Output Schema #1]:::done
+    D --> F[Status Logic reconciled needs_review cannot_reconcile #4 #5]:::done
+    D --> G[Audit Log and Provenance #6]:::next
+    D --> H[Review Queue #8]:::next
+    E --> I[Download View Results in UI #7]:::partial
+    H --> J[Human Review Workflow #8]:::next
     J --> G
-    G --> K[Audit Trail Display (#6)]:::next
-    I --> L[Demo Dashboard (#10, #12)]:::future
+    G --> K[Audit Trail Display #6]:::next
+    I --> L[Demo Dashboard #10 #12]:::future
 
     classDef done fill:#b6e7a0,stroke:#333,stroke-width:2px;
     classDef partial fill:#ffe599,stroke:#333,stroke-width:2px;
