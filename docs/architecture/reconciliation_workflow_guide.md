@@ -1,3 +1,65 @@
+---
+
+## 17. Explicit Example: Multi-Case ChatGPT Reconciliation Run
+
+### Prompt Used
+
+```
+You are an expert in oncology variant normalization. For each input below, map the gene and variant to their canonical forms using current clinical and research standards. If the input is ambiguous, contains typos, or uses legacy names, provide your best mapping, explain your reasoning, and note your confidence. If multiple mappings are possible, list them and explain. If you cannot reconcile, state why.
+
+Inputs:
+1. "p53 mutation"
+2. "EGFR uncommon exon 20 insertion"
+3. "KRAS codon 12 glycine to cysteine"
+4. "BRAF V600E-like mutation"
+5. "EGFR ex19deltion"
+6. "c-erbB-1"
+7. "EGFR T790M and L858R double mutation"
+
+For each, return:
+- Canonical gene
+- Canonical variant(s)
+- Confidence (high/medium/low)
+- Reasoning
+```
+
+### ChatGPT Output (Structured Table)
+
+| Input                                    | Canonical gene | Canonical variant(s)                                                           | Confidence     | Reasoning                                                                                                                                            |
+| ---------------------------------------- | -------------- | ------------------------------------------------------------------------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **p53 mutation**                         | **TP53**       | Unspecified TP53 mutation                                                      | **Medium**     | “p53” is a common legacy/protein name associated with **TP53**. But “mutation” is nonspecific, so the exact variant cannot be normalized.            |
+| **EGFR uncommon exon 20 insertion**      | **EGFR**       | EGFR exon 20 insertion, exact insertion unspecified                            | **Medium**     | Clearly points to EGFR exon 20 insertion class, but “uncommon” does not define the precise HGVS variant.                                             |
+| **KRAS codon 12 glycine to cysteine**    | **KRAS**       | **KRAS p.G12C**                                                                | **High**       | Glycine-to-cysteine substitution at codon 12 maps directly to G12C. KRAS G12C is a known oncogenic variant. ([PMC][1])                               |
+| **BRAF V600E-like mutation**             | **BRAF**       | Possible: **BRAF p.V600E**; broader possible group: BRAF V600-class alteration | **Low–Medium** | “V600E-like” is ambiguous. It may mean true V600E, or another V600 alteration such as V600K/D/R with similar signaling behavior. Should be reviewed. |
+| **EGFR ex19deltion**                     | **EGFR**       | **EGFR exon 19 deletion**                                                      | **High**       | Likely typo for “ex19 deletion” / “Ex19del.” EGFR exon 19 deletions are common activating EGFR variants in lung cancer. ([PMC][2])                   |
+| **c-erbB-1**                             | **EGFR**       | Gene alias only; no variant provided                                           | **High**       | c-erbB-1 / ERBB1 is a legacy name for EGFR. No variant string is present, so only gene normalization is possible.                                    |
+| **EGFR T790M and L858R double mutation** | **EGFR**       | **EGFR p.T790M** and **EGFR p.L858R**                                          | **High**       | This contains two specific EGFR protein substitutions. L858R is a common activating EGFR mutation; T790M is a well-known EGFR resistance mutation.   |
+
+### LLM Reasoning Steps & Evidence Logic
+
+For each case, ChatGPT (GPT-4.1) performed:
+- **Alias/ontology mapping:** Recognized gene aliases (e.g., p53 → TP53, c-erbB-1 → EGFR) using biomedical conventions.
+- **HGVS-style variant interpretation:** Parsed free-text variant descriptions into standard forms (e.g., codon 12 glycine to cysteine → p.G12C).
+- **Typo correction:** Detected and corrected likely typos (e.g., ex19deltion → exon 19 deletion).
+- **Ambiguity detection:** Flagged vague or ambiguous terms (e.g., V600E-like) and did not force a canonical mapping.
+- **Multi-variant parsing:** Split and mapped co-occurring variants (e.g., T790M and L858R).
+- **Confidence estimation:** Assigned confidence based on specificity, ambiguity, and standardization certainty.
+- **Evidence citation:** Provided literature or database references where relevant (see [PMC][1], [PMC][2]).
+
+#### Model Used
+- ChatGPT (GPT-4.1, May 2026)
+
+#### What Was NOT Used
+- No live database/API queries (HGNC, ClinVar, etc.)
+- No production-grade normalization pipeline
+- No vector/semantic retrieval
+- No human review
+
+#### Key Takeaway
+This output demonstrates LLM-only reasoning, not a hybrid or production pipeline. For real-world use, combine LLM reasoning with deterministic rules, APIs, and human review as described in this guide.
+
+[1]: https://pmc.ncbi.nlm.nih.gov/articles/PMC7041424/?utm_source=chatgpt.com "KRAS G12C Game of Thrones, which direct KRAS inhibitor ..."
+[2]: https://pmc.ncbi.nlm.nih.gov/articles/PMC6764748/?utm_source=chatgpt.com "Diverse EGFR Exon 20 Insertions and Co-Occurring ... - PMC"
 # OncoReconcile AI: Gene & Variant Reconciliation Workflow Guide
 
 ## Overview
