@@ -1,9 +1,32 @@
-"""Normalization Agent - Map variants to canonical representations
+
+"""
+Normalization Agent - Map variants to canonical representations
 
 This agent normalizes genes and variants to canonical forms using:
 - HGNC gene nomenclature
 - RefSeq transcripts
 - HGVS nomenclature standards
+
+====================
+Developer Documentation
+====================
+
+**Current Logic:**
+- Gene normalization uses curated alias mapping (gene_aliases.csv), uppercases, and strips whitespace.
+- Variant normalization uses curated synonym mapping (variant_synonyms.csv), uppercases, replaces underscores, trims spaces, and applies some hardcoded rules for common variants (e.g., EGFR exon 19 deletion, L858R, BRAF V600E, KRAS G12C).
+- If no match, returns a generic canonical form and a note for manual curation.
+
+**How to Enhance Normalization Logic:**
+1. Expand mapping files (gene_aliases.csv, variant_synonyms.csv) with new aliases/synonyms as encountered.
+2. Update normalization logic to handle more formatting variations (e.g., punctuation, common typos, alternate spellings).
+3. Add more rule-based transformations for common patterns (e.g., regex for "Ex19del" → "exon 19 deletion").
+4. Regularly review unmapped or "needs_review" cases and add deterministic rules/mappings if possible.
+5. Leverage external databases (HGNC, ClinVar) for additional mappings.
+
+**Team Guidance:**
+- When you encounter an unmapped input, first check if it can be handled by expanding the mapping files or adding a new rule.
+- For ambiguous or novel cases, escalate to AI/LLM or human review.
+- Document any new rules or mapping logic in this file and update the mapping files as needed.
 """
 
 from dataclasses import dataclass
