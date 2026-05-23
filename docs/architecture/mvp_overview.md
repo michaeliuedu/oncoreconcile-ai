@@ -1,3 +1,12 @@
+<!-- Color Legend for Diagram -->
+**Diagram Color Legend:**
+
+- <span style="background-color:#b6e7a0; padding:2px 8px; border:1px solid #333;">Green</span> = Complete/Done
+- <span style="background-color:#ffe599; padding:2px 8px; border:1px solid #333;">Yellow</span> = In Progress/Partial/Next
+- <span style="background-color:#f4cccc; padding:2px 8px; border:1px solid #333;">Red</span> = Future/Blocked
+- <span style="background-color:#c9daf8; padding:2px 8px; border:1px solid #333;">Blue</span> = Documentation/Deliverable
+
+*Note: GitHub may not render HTML color swatches, but the color codes match the diagram classes: `done`, `partial`, `inprogress`, `next`, `future`, `doc`.*
 ## Parallel Development for Blocked Issues
 
 To maximize team productivity, blocked issues can be developed in parallel using the following approach:
