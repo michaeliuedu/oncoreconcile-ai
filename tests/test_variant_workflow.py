@@ -90,6 +90,7 @@ class TestExtractionAgent:
         
         assert result.gene == "BRAF"
         assert result.variant_type == "substitution"
+        assert result.location == "V600E"
 
 
 if __name__ == "__main__":

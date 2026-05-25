@@ -86,10 +86,15 @@ class ExtractionAgent:
             match = re.search(pattern, remainder, re.IGNORECASE)
             if match:
                 if len(match.groups()) >= 2:
+                    if pattern.startswith("c\\."):
+                        location = f"c.{match.group(1)}{match.group(2).upper()}>{match.group(3).upper()}"
+                    else:
+                        location = f"{match.group(1).upper()}{match.group(2)}{match.group(3).upper()}"
+
                     return ExtractedVariant(
                         gene=gene,
                         variant_type="substitution",
-                        location="protein" if "p." not in remainder else "dna",
+                        location=location,
                         nomenclature_style="shorthand" if "." not in remainder else "hgvs",
                         confidence=0.90,
                         raw_input=raw_variant,

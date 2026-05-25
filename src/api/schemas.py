@@ -27,6 +27,26 @@ class ReconcileResponse(BaseModel):
     estimated_review_time_minutes: Optional[int]
 
 
+class GeneReconcileRequest(BaseModel):
+    """Gene reconciliation request"""
+    gene_name: str = Field(..., description="Gene symbol or alias (e.g., 'HER1')")
+    source: str = Field(default="external", description="Source of gene name")
+    metadata: Optional[Dict[str, Any]] = Field(None, description="Additional metadata")
+
+
+class GeneReconcileResponse(BaseModel):
+    """Gene reconciliation response"""
+    input_gene: str
+    canonical_gene: str
+    hgnc_id: Optional[int]
+    entrez_gene_id: Optional[int]
+    confidence: float
+    match_type: str
+    aliases: List[str]
+    description: Optional[str]
+    notes: Optional[str]
+
+
 class ReviewDecision(BaseModel):
     """Expert review decision"""
     reconciliation_id: str

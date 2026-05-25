@@ -89,11 +89,28 @@ def page_home():
     st.markdown("---")
     
     st.subheader("System Workflow")
-    st.image(
-        "https://via.placeholder.com/800x200?text=Workflow+Diagram",
-        caption="Multi-agent variant reconciliation pipeline",
-        use_column_width=True
+    st.graphviz_chart(
+        """
+        digraph {
+            graph [rankdir=LR, bgcolor="transparent", pad="0.2", nodesep="0.45", ranksep="0.55"];
+            node [shape=box, style="rounded,filled", fillcolor="#eef2ff", color="#4f46e5", fontname="Helvetica", fontsize=11, margin="0.12,0.08"];
+            edge [color="#6b7280", arrowsize=0.7];
+
+            input [label="Raw Input"];
+            gene [label="Gene\\nReconciliation"];
+            extract [label="Variant\\nExtraction"];
+            normalize [label="Normalization"];
+            retrieve [label="Candidate\\nRetrieval"];
+            score [label="Confidence\\nScoring"];
+            review [label="Human\\nReview"];
+            audit [label="Audit\\nTrail"];
+
+            input -> gene -> extract -> normalize -> retrieve -> score -> review -> audit;
+        }
+        """,
+        use_container_width=True,
     )
+    st.caption("Multi-agent variant reconciliation pipeline")
 
 
 def page_reconcile():

@@ -1,13 +1,38 @@
-"""Normalization Agent - Map variants to canonical representations
+
+"""
+Normalization Agent - Map variants to canonical representations
 
 This agent normalizes genes and variants to canonical forms using:
 - HGNC gene nomenclature
 - RefSeq transcripts
 - HGVS nomenclature standards
+
+====================
+Developer Documentation
+====================
+
+**Current Logic:**
+- Gene normalization uses curated alias mapping (gene_aliases.csv), uppercases, and strips whitespace.
+- Variant normalization uses curated synonym mapping (variant_synonyms.csv), uppercases, replaces underscores, trims spaces, and applies some hardcoded rules for common variants (e.g., EGFR exon 19 deletion, L858R, BRAF V600E, KRAS G12C).
+- If no match, returns a generic canonical form and a note for manual curation.
+
+**How to Enhance Normalization Logic:**
+1. Expand mapping files (gene_aliases.csv, variant_synonyms.csv) with new aliases/synonyms as encountered.
+2. Update normalization logic to handle more formatting variations (e.g., punctuation, common typos, alternate spellings).
+3. Add more rule-based transformations for common patterns (e.g., regex for "Ex19del" → "exon 19 deletion").
+4. Regularly review unmapped or "needs_review" cases and add deterministic rules/mappings if possible.
+5. Leverage external databases (HGNC, ClinVar) for additional mappings.
+
+**Team Guidance:**
+- When you encounter an unmapped input, first check if it can be handled by expanding the mapping files or adding a new rule.
+- For ambiguous or novel cases, escalate to AI/LLM or human review.
+- Document any new rules or mapping logic in this file and update the mapping files as needed.
 """
 
 from dataclasses import dataclass
-from typing import Optional, Dict, Any
+from pathlib import Path
+import csv
+from typing import Optional, Dict, Any, List
 
 
 @dataclass
@@ -25,29 +50,95 @@ class NormalizedVariant:
     notes: Optional[str] = None
 
 
+@dataclass
+class GeneReconciliationResult:
+    """Result of reconciling an input gene name to a canonical gene"""
+    input_gene: str
+    canonical_gene: str
+    hgnc_id: Optional[int]
+    entrez_gene_id: Optional[int]
+    confidence: float
+    match_type: str
+    aliases: List[str]
+    description: Optional[str] = None
+    notes: Optional[str] = None
+
+
 class GeneNormalizer:
     """Normalize gene symbols to canonical HGNC names"""
 
-    def __init__(self, gene_aliases_data: Optional[Dict[str, Dict]] = None):
+    def __init__(
+        self,
+        gene_aliases_data: Optional[Dict[str, Dict]] = None,
+        gene_aliases_path: Optional[str] = None,
+    ):
         """
         Initialize with gene alias data
         
         Args:
             gene_aliases_data: Dictionary mapping gene inputs to canonical forms
+            gene_aliases_path: Optional CSV path for gene alias reference data
         """
-        # Default mapping for MVP
-        self.gene_map = {
-            "EGFR": {"canonical": "EGFR", "hgnc_id": 3236, "entrez_id": 1956},
-            "EGF": {"canonical": "EGFR", "hgnc_id": 3236, "entrez_id": 1956},
-            "BRAF": {"canonical": "BRAF", "hgnc_id": 1097, "entrez_id": 673},
-            "ERBB2": {"canonical": "ERBB2", "hgnc_id": 3236, "entrez_id": 2064},
-            "HER2": {"canonical": "ERBB2", "hgnc_id": 3236, "entrez_id": 2064},
-            "KRAS": {"canonical": "KRAS", "hgnc_id": 6407, "entrez_id": 3845},
-            "ALK": {"canonical": "ALK", "hgnc_id": 427, "entrez_id": 238},
-            "MET": {"canonical": "MET", "hgnc_id": 6973, "entrez_id": 4233},
-        }
+        self.gene_map: Dict[str, Dict[str, Any]] = {}
+        self.aliases_by_canonical: Dict[str, List[str]] = {}
+        self._load_aliases_from_csv(gene_aliases_path)
+
         if gene_aliases_data:
-            self.gene_map.update(gene_aliases_data)
+            for gene_input, gene_info in gene_aliases_data.items():
+                self._add_gene_alias(gene_input, gene_info)
+
+    @staticmethod
+    def _default_gene_aliases_path() -> Path:
+        """Return the repository reference data path for gene aliases"""
+        return (
+            Path(__file__).resolve().parents[2]
+            / "data"
+            / "reference"
+            / "v0.1"
+            / "gene_aliases.csv"
+        )
+
+    @staticmethod
+    def _parse_optional_int(value: Optional[str]) -> Optional[int]:
+        """Parse CSV integer values while preserving blanks as None"""
+        if value in (None, ""):
+            return None
+        return int(value)
+
+    def _load_aliases_from_csv(self, gene_aliases_path: Optional[str] = None) -> None:
+        """Load gene aliases from the curated reference CSV"""
+        path = Path(gene_aliases_path) if gene_aliases_path else self._default_gene_aliases_path()
+        if not path.exists():
+            return
+
+        with path.open(newline="") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                self._add_gene_alias(
+                    row["gene_input"],
+                    {
+                        "canonical": row["canonical_gene"],
+                        "hgnc_id": self._parse_optional_int(row.get("hgnc_id")),
+                        "entrez_id": self._parse_optional_int(row.get("entrez_id")),
+                        "description": row.get("description"),
+                    },
+                )
+
+    def _add_gene_alias(self, gene_input: str, gene_info: Dict[str, Any]) -> None:
+        """Register one input gene spelling as an alias for a canonical gene"""
+        alias_key = gene_input.upper().strip()
+        canonical = gene_info["canonical"].upper().strip()
+        normalized_info = {
+            "canonical": canonical,
+            "hgnc_id": gene_info.get("hgnc_id"),
+            "entrez_id": gene_info.get("entrez_id"),
+            "description": gene_info.get("description"),
+        }
+
+        self.gene_map[alias_key] = normalized_info
+        self.aliases_by_canonical.setdefault(canonical, [])
+        if alias_key not in self.aliases_by_canonical[canonical]:
+            self.aliases_by_canonical[canonical].append(alias_key)
 
     def normalize_gene(self, gene_input: str) -> Dict[str, Any]:
         """
@@ -62,7 +153,11 @@ class GeneNormalizer:
         gene_upper = gene_input.upper().strip()
         
         if gene_upper in self.gene_map:
-            return self.gene_map[gene_upper]
+            gene_info = self.gene_map[gene_upper].copy()
+            gene_info["confidence"] = 1.0 if gene_upper == gene_info["canonical"] else 0.95
+            gene_info["match_type"] = "canonical" if gene_upper == gene_info["canonical"] else "alias"
+            gene_info["aliases"] = self.aliases_by_canonical.get(gene_info["canonical"], [])
+            return gene_info
         
         # Fallback: return as-is with warning
         return {
@@ -70,14 +165,52 @@ class GeneNormalizer:
             "hgnc_id": None,
             "entrez_id": None,
             "confidence": 0.3,
+            "match_type": "unmatched",
+            "aliases": [],
             "note": f"Gene '{gene_input}' not in reference database"
         }
+
+
+class GeneReconciliationAgent:
+    """First-class gene name reconciliation workflow"""
+
+    def __init__(self, gene_normalizer: Optional[GeneNormalizer] = None):
+        """Initialize with a CSV-backed gene normalizer"""
+        self.gene_normalizer = gene_normalizer or GeneNormalizer()
+
+    def execute(self, gene_input: str) -> GeneReconciliationResult:
+        """
+        Reconcile a raw gene name or alias to a canonical gene symbol.
+
+        Args:
+            gene_input: Gene symbol, alias, or historical name
+
+        Returns:
+            GeneReconciliationResult with canonical mapping and audit-friendly details
+        """
+        gene_info = self.gene_normalizer.normalize_gene(gene_input)
+        return GeneReconciliationResult(
+            input_gene=gene_input,
+            canonical_gene=gene_info["canonical"],
+            hgnc_id=gene_info.get("hgnc_id"),
+            entrez_gene_id=gene_info.get("entrez_id"),
+            confidence=gene_info.get("confidence", 0.3),
+            match_type=gene_info.get("match_type", "unmatched"),
+            aliases=gene_info.get("aliases", []),
+            description=gene_info.get("description"),
+            notes=gene_info.get("note"),
+        )
 
 
 class VariantNormalizer:
     """Normalize variants to canonical HGVS nomenclature"""
 
-    def __init__(self, transcript_data: Optional[Dict] = None):
+    def __init__(
+        self,
+        transcript_data: Optional[Dict] = None,
+        variant_synonyms_path: Optional[str] = None,
+        canonical_variants_path: Optional[str] = None,
+    ):
         """Initialize with transcript reference data"""
         # Default transcripts for MVP
         self.transcripts = {
@@ -101,9 +234,91 @@ class VariantNormalizer:
             "MET": {
                 "primary": "NM_000245.3",
             },
+            "ROS1": {
+                "primary": "unknown",
+            },
+            "RET": {
+                "primary": "unknown",
+            },
+            "TP53": {
+                "primary": "NM_000546.6",
+            },
         }
         if transcript_data:
             self.transcripts.update(transcript_data)
+
+        self.canonical_variants: Dict[str, Dict[str, Any]] = {}
+        self.variant_synonym_map: Dict[tuple[str, str], str] = {}
+        self._load_canonical_variants(canonical_variants_path)
+        self._load_variant_synonyms(variant_synonyms_path)
+
+    @staticmethod
+    def _reference_path(filename: str) -> Path:
+        """Return a file path under the repository reference data directory"""
+        return (
+            Path(__file__).resolve().parents[2]
+            / "data"
+            / "reference"
+            / "v0.1"
+            / filename
+        )
+
+    @staticmethod
+    def _normalize_lookup_text(value: str) -> str:
+        """Normalize variant text for deterministic synonym lookup"""
+        return " ".join(value.upper().replace("::", "-").replace("_", " ").split())
+
+    def _load_canonical_variants(self, canonical_variants_path: Optional[str] = None) -> None:
+        """Load canonical variant metadata from the reference CSV"""
+        path = Path(canonical_variants_path) if canonical_variants_path else self._reference_path("canonical_variants.csv")
+        if not path.exists():
+            return
+
+        with path.open(newline="") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                self.canonical_variants[row["canonical_id"]] = row
+
+    def _load_variant_synonyms(self, variant_synonyms_path: Optional[str] = None) -> None:
+        """Load variant synonyms from the reference CSV"""
+        path = Path(variant_synonyms_path) if variant_synonyms_path else self._reference_path("variant_synonyms.csv")
+        if not path.exists():
+            return
+
+        with path.open(newline="") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                gene = row["canonical_id"].split("|")[0]
+                synonym_key = self._normalize_lookup_text(row["synonym"])
+                canonical_key = self._normalize_lookup_text(row["canonical_id"].replace("|", " "))
+                self.variant_synonym_map[(gene, synonym_key)] = row["canonical_id"]
+                self.variant_synonym_map[(gene, canonical_key)] = row["canonical_id"]
+
+    def _lookup_variant(self, gene: str, location: str) -> Optional[Dict[str, Any]]:
+        """Look up a variant by gene and raw/synonym text"""
+        gene = gene.upper().strip()
+        lookup_candidates = [
+            location,
+            f"{gene} {location}",
+            location.replace("|", " "),
+        ]
+
+        for candidate in lookup_candidates:
+            canonical_id = self.variant_synonym_map.get(
+                (gene, self._normalize_lookup_text(candidate))
+            )
+            if canonical_id:
+                metadata = self.canonical_variants.get(canonical_id, {})
+                return {
+                    "canonical_id": canonical_id,
+                    "hgvs_dna": metadata.get("hgvs_dna", "unknown"),
+                    "hgvs_protein": metadata.get("hgvs_protein", "unknown"),
+                    "transcript": metadata.get("transcript", self.transcripts.get(gene, {}).get("primary", "unknown")),
+                    "confidence": 0.97,
+                    "match_type": "synonym",
+                }
+
+        return None
 
     def normalize_variant(
         self,
@@ -123,6 +338,10 @@ class VariantNormalizer:
             Dictionary with normalized variant info
         """
         transcript = self.transcripts.get(gene, {}).get("primary", "unknown")
+
+        synonym_match = self._lookup_variant(gene, location)
+        if synonym_match:
+            return synonym_match
         
         # Map common variants to canonical forms
         if gene == "EGFR" and variant_type == "deletion" and "19" in location:

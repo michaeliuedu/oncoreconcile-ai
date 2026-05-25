@@ -4,13 +4,16 @@ from fastapi import APIRouter, HTTPException
 from datetime import datetime
 
 from .schemas import (
+    GeneReconcileRequest, GeneReconcileResponse,
     ReconcileRequest, ReconcileResponse, ReviewDecision, ReviewDecisionResponse,
     VariantQuery, VariantInfo, AuditLogEntry, HealthResponse
 )
 from ..agents.workflow import WorkflowOrchestrator
+from ..agents.normalization_agent import GeneReconciliationAgent
 
 router = APIRouter()
 workflow = WorkflowOrchestrator()
+gene_reconciliation_agent = GeneReconciliationAgent()
 
 # Track start time for uptime
 _start_time = datetime.utcnow()
@@ -66,6 +69,28 @@ async def submit_reconciliation(request: ReconcileRequest):
     
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/reconcile/gene", response_model=GeneReconcileResponse)
+async def reconcile_gene(request: GeneReconcileRequest):
+    """
+    Reconcile a gene symbol or alias to a canonical HGNC-style gene record.
+
+    This is deterministic and CSV-backed in the MVP, using data/reference/v0.1/gene_aliases.csv
+    as the source of truth.
+    """
+    result = gene_reconciliation_agent.execute(request.gene_name)
+    return GeneReconcileResponse(
+        input_gene=result.input_gene,
+        canonical_gene=result.canonical_gene,
+        hgnc_id=result.hgnc_id,
+        entrez_gene_id=result.entrez_gene_id,
+        confidence=result.confidence,
+        match_type=result.match_type,
+        aliases=result.aliases,
+        description=result.description,
+        notes=result.notes,
+    )
 
 
 @router.get("/reconcile/{reconciliation_id}", response_model=ReconcileResponse)

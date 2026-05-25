@@ -1,0 +1,10 @@
+Synthetic NGS Oncology Report
+Report ID: SYN-NSCLC-008
+Cancer Type: Non-small cell lung cancer
+Specimen: Lung tumor biopsy
+
+Detected Genomic Findings:
+- RET KIF5B::RET: detected
+
+Interpretation Note:
+This synthetic report is for AI competition development only. It is not real patient data. The variants are intentionally written in mixed terminology to test extraction, gene normalization, variant reconciliation, evidence linkage, and human review routing.

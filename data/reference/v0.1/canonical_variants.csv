@@ -18,6 +18,7 @@ KRAS|G12D,KRAS,c.35G>A,p.G12D,substitution,Activating,1,NM_033360.4
 KRAS|G12A,KRAS,c.34G>C,p.G12A,substitution,Activating,1,NM_033360.4
 KRAS|G13D,KRAS,c.38G>A,p.G13D,substitution,Activating,1,NM_033360.4
 ALK|EML4-ALK,ALK,n/a,n/a,fusion,Activating (ALK inhibitor-responsive),1,NM_004304.4
+ALK|fusion,ALK,n/a,ALK fusion,fusion,Activating (ALK inhibitor-responsive),1,NM_004304.4
 ALK|STRN-ALK,ALK,n/a,n/a,fusion,Activating,2,NM_004304.4
 ALK|TFG-ALK,ALK,n/a,n/a,fusion,Activating,2,NM_004304.4
 ALK|F1174L,ALK,c.3521A>C,p.F1174L,substitution,Sensitizing,2,NM_004304.4
@@ -26,3 +27,7 @@ MET|exon_14_skipping,MET,c.2888+1G>A,p.[splice],splice_site,Activating (MET inhi
 MET|exon_14_deletion,MET,c.2888-10_3076+1del,p.splice,deletion,Activating,1,NM_000245.3
 MET|Y1230C,MET,c.3688A>G,p.Y1230C,substitution,Activating,2,NM_000245.3
 MET|R988C,MET,c.2963C>T,p.R988C,substitution,Functional,2,NM_000245.3
+ROS1|fusion,ROS1,n/a,ROS1 fusion,fusion,Activating (ROS1 inhibitor-responsive),1,unknown
+RET|fusion,RET,n/a,RET fusion,fusion,Activating (RET inhibitor-responsive),1,unknown
+ERBB2|amplification,ERBB2,copy number gain,ERBB2 amplification,amplification,Copy-number actionable context,2,NM_004448.3
+TP53|R175H,TP53,c.524G>A,p.Arg175His,substitution,Pathogenic/contextual,3,NM_000546.6

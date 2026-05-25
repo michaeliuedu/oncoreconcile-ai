@@ -1,0 +1,62 @@
+gene,variant_raw,variant_normalized,variant_category,hgvs_c,evidence_sources,ambiguity_flag,notes
+EGFR,Ex19del,p.E746_A750del,deletion,c.2235_2249del,HGVS|ClinVar|CIViC,human_review_if_generic_exon19del,Pathogenic/Likely pathogenic reported for EGFR exon 19 deletion representations
+EGFR,exon 19 deletion,p.E746_A750del,deletion,c.2235_2249del,HGVS|ClinVar|CIViC,human_review_if_generic_exon19del,Pathogenic/Likely pathogenic reported for EGFR exon 19 deletion representations
+EGFR,EGFR Ex19del,p.E746_A750del,deletion,c.2235_2249del,HGVS|ClinVar|CIViC,human_review_if_generic_exon19del,Pathogenic/Likely pathogenic reported for EGFR exon 19 deletion representations
+EGFR,activating EGFR deletion,p.E746_A750del,deletion,c.2235_2249del,HGVS|ClinVar|CIViC,human_review_if_generic_exon19del,Pathogenic/Likely pathogenic reported for EGFR exon 19 deletion representations
+EGFR,c.2235_2249del,p.E746_A750del,deletion,c.2235_2249del,HGVS|ClinVar|CIViC,human_review_if_generic_exon19del,Pathogenic/Likely pathogenic reported for EGFR exon 19 deletion representations
+EGFR,p.E746_A750del,p.E746_A750del,deletion,c.2235_2249del,HGVS|ClinVar|CIViC,human_review_if_generic_exon19del,Pathogenic/Likely pathogenic reported for EGFR exon 19 deletion representations
+EGFR,L858R,p.Leu858Arg,SNV,c.2573T>G,HGVS|ClinVar|CIViC,auto,Pathogenic EGFR activating mutation
+EGFR,p.L858R,p.Leu858Arg,SNV,c.2573T>G,HGVS|ClinVar|CIViC,auto,Pathogenic EGFR activating mutation
+EGFR,p.Leu858Arg,p.Leu858Arg,SNV,c.2573T>G,HGVS|ClinVar|CIViC,auto,Pathogenic EGFR activating mutation
+EGFR,c.2573T>G,p.Leu858Arg,SNV,c.2573T>G,HGVS|ClinVar|CIViC,auto,Pathogenic EGFR activating mutation
+EGFR,EGFR L858R,p.Leu858Arg,SNV,c.2573T>G,HGVS|ClinVar|CIViC,auto,Pathogenic EGFR activating mutation
+EGFR,T790M,p.Thr790Met,SNV,c.2369C>T,HGVS|ClinVar|CIViC,auto,EGFR T790M reported as clinically significant resistance mutation
+EGFR,p.T790M,p.Thr790Met,SNV,c.2369C>T,HGVS|ClinVar|CIViC,auto,EGFR T790M reported as clinically significant resistance mutation
+EGFR,p.Thr790Met,p.Thr790Met,SNV,c.2369C>T,HGVS|ClinVar|CIViC,auto,EGFR T790M reported as clinically significant resistance mutation
+EGFR,c.2369C>T,p.Thr790Met,SNV,c.2369C>T,HGVS|ClinVar|CIViC,auto,EGFR T790M reported as clinically significant resistance mutation
+EGFR,EGFR resistance mutation,p.Thr790Met,SNV,c.2369C>T,HGVS|ClinVar|CIViC,auto,EGFR T790M reported as clinically significant resistance mutation
+KRAS,G12C,p.Gly12Cys,SNV,c.34G>T,HGVS|ClinVar|CIViC,auto,KRAS G12C reported as pathogenic/oncogenic in cancer contexts
+KRAS,p.G12C,p.Gly12Cys,SNV,c.34G>T,HGVS|ClinVar|CIViC,auto,KRAS G12C reported as pathogenic/oncogenic in cancer contexts
+KRAS,p.Gly12Cys,p.Gly12Cys,SNV,c.34G>T,HGVS|ClinVar|CIViC,auto,KRAS G12C reported as pathogenic/oncogenic in cancer contexts
+KRAS,c.34G>T,p.Gly12Cys,SNV,c.34G>T,HGVS|ClinVar|CIViC,auto,KRAS G12C reported as pathogenic/oncogenic in cancer contexts
+KRAS,KRAS G12C,p.Gly12Cys,SNV,c.34G>T,HGVS|ClinVar|CIViC,auto,KRAS G12C reported as pathogenic/oncogenic in cancer contexts
+KRAS,G12D,p.Gly12Asp,SNV,c.35G>A,HGVS|ClinVar|CIViC,auto,KRAS G12D reported as oncogenic/pathogenic in cancer contexts
+KRAS,p.G12D,p.Gly12Asp,SNV,c.35G>A,HGVS|ClinVar|CIViC,auto,KRAS G12D reported as oncogenic/pathogenic in cancer contexts
+KRAS,p.Gly12Asp,p.Gly12Asp,SNV,c.35G>A,HGVS|ClinVar|CIViC,auto,KRAS G12D reported as oncogenic/pathogenic in cancer contexts
+KRAS,c.35G>A,p.Gly12Asp,SNV,c.35G>A,HGVS|ClinVar|CIViC,auto,KRAS G12D reported as oncogenic/pathogenic in cancer contexts
+KRAS,KRAS gly12asp,p.Gly12Asp,SNV,c.35G>A,HGVS|ClinVar|CIViC,auto,KRAS G12D reported as oncogenic/pathogenic in cancer contexts
+BRAF,V600E,p.Val600Glu,SNV,c.1799T>A,HGVS|ClinVar|CIViC,auto,BRAF V600E reported as pathogenic/oncogenic
+BRAF,p.V600E,p.Val600Glu,SNV,c.1799T>A,HGVS|ClinVar|CIViC,auto,BRAF V600E reported as pathogenic/oncogenic
+BRAF,p.Val600Glu,p.Val600Glu,SNV,c.1799T>A,HGVS|ClinVar|CIViC,auto,BRAF V600E reported as pathogenic/oncogenic
+BRAF,c.1799T>A,p.Val600Glu,SNV,c.1799T>A,HGVS|ClinVar|CIViC,auto,BRAF V600E reported as pathogenic/oncogenic
+BRAF,BRAF V600E,p.Val600Glu,SNV,c.1799T>A,HGVS|ClinVar|CIViC,auto,BRAF V600E reported as pathogenic/oncogenic
+ALK,ALK rearrangement,ALK fusion,fusion,NA,HGVS|ClinVar|CIViC,human_review_for_partner,Structural fusion evidence may be assay/report based rather than simple SNV ClinVar record
+ALK,EML4-ALK,ALK fusion,fusion,NA,HGVS|ClinVar|CIViC,human_review_for_partner,Structural fusion evidence may be assay/report based rather than simple SNV ClinVar record
+ALK,ALK fusion,ALK fusion,fusion,NA,HGVS|ClinVar|CIViC,human_review_for_partner,Structural fusion evidence may be assay/report based rather than simple SNV ClinVar record
+ALK,ALK positive,ALK fusion,fusion,NA,HGVS|ClinVar|CIViC,human_review_for_partner,Structural fusion evidence may be assay/report based rather than simple SNV ClinVar record
+ALK,EML4::ALK,ALK fusion,fusion,NA,HGVS|ClinVar|CIViC,human_review_for_partner,Structural fusion evidence may be assay/report based rather than simple SNV ClinVar record
+ROS1,ROS1 rearrangement,ROS1 fusion,fusion,NA,HGVS|ClinVar|CIViC,human_review_for_partner,Fusion evidence often comes from clinical report/knowledgebase rather than SNV record
+ROS1,ROS1 fusion,ROS1 fusion,fusion,NA,HGVS|ClinVar|CIViC,human_review_for_partner,Fusion evidence often comes from clinical report/knowledgebase rather than SNV record
+ROS1,CD74-ROS1,ROS1 fusion,fusion,NA,HGVS|ClinVar|CIViC,human_review_for_partner,Fusion evidence often comes from clinical report/knowledgebase rather than SNV record
+ROS1,CD74::ROS1,ROS1 fusion,fusion,NA,HGVS|ClinVar|CIViC,human_review_for_partner,Fusion evidence often comes from clinical report/knowledgebase rather than SNV record
+ROS1,ROS1 positive,ROS1 fusion,fusion,NA,HGVS|ClinVar|CIViC,human_review_for_partner,Fusion evidence often comes from clinical report/knowledgebase rather than SNV record
+MET,METex14,MET exon 14 skipping,splice,various splice-site alterations,HGVS|ClinVar|CIViC,human_review_due_to_multiple_variants,MET exon 14 skipping can arise from multiple splice-region variants
+MET,MET exon 14 skipping,MET exon 14 skipping,splice,various splice-site alterations,HGVS|ClinVar|CIViC,human_review_due_to_multiple_variants,MET exon 14 skipping can arise from multiple splice-region variants
+MET,MET exon14 skip,MET exon 14 skipping,splice,various splice-site alterations,HGVS|ClinVar|CIViC,human_review_due_to_multiple_variants,MET exon 14 skipping can arise from multiple splice-region variants
+MET,MET splice exon 14,MET exon 14 skipping,splice,various splice-site alterations,HGVS|ClinVar|CIViC,human_review_due_to_multiple_variants,MET exon 14 skipping can arise from multiple splice-region variants
+MET,MET exon 14 deletion,MET exon 14 skipping,splice,various splice-site alterations,HGVS|ClinVar|CIViC,human_review_due_to_multiple_variants,MET exon 14 skipping can arise from multiple splice-region variants
+ERBB2,HER2 amplification,ERBB2 amplification,amplification,copy number gain,HGVS|ClinVar|CIViC,auto_gene_alias_needed,Copy-number evidence usually assay/report based
+ERBB2,ERBB2 amp,ERBB2 amplification,amplification,copy number gain,HGVS|ClinVar|CIViC,auto_gene_alias_needed,Copy-number evidence usually assay/report based
+ERBB2,HER2 amp,ERBB2 amplification,amplification,copy number gain,HGVS|ClinVar|CIViC,auto_gene_alias_needed,Copy-number evidence usually assay/report based
+ERBB2,ERBB-2 amplification,ERBB2 amplification,amplification,copy number gain,HGVS|ClinVar|CIViC,auto_gene_alias_needed,Copy-number evidence usually assay/report based
+ERBB2,ERBB2 amplification,ERBB2 amplification,amplification,copy number gain,HGVS|ClinVar|CIViC,auto_gene_alias_needed,Copy-number evidence usually assay/report based
+RET,RET rearrangement,RET fusion,fusion,NA,HGVS|ClinVar|CIViC,human_review_for_partner,Fusion evidence often comes from report/knowledgebase
+RET,KIF5B-RET,RET fusion,fusion,NA,HGVS|ClinVar|CIViC,human_review_for_partner,Fusion evidence often comes from report/knowledgebase
+RET,KIF5B::RET,RET fusion,fusion,NA,HGVS|ClinVar|CIViC,human_review_for_partner,Fusion evidence often comes from report/knowledgebase
+RET,RET fusion,RET fusion,fusion,NA,HGVS|ClinVar|CIViC,human_review_for_partner,Fusion evidence often comes from report/knowledgebase
+RET,RET positive,RET fusion,fusion,NA,HGVS|ClinVar|CIViC,human_review_for_partner,Fusion evidence often comes from report/knowledgebase
+TP53,R175H,p.Arg175His,SNV,c.524G>A,HGVS|ClinVar|CIViC,auto,TP53 R175H reported as pathogenic in cancer predisposition/somatic contexts
+TP53,p.R175H,p.Arg175His,SNV,c.524G>A,HGVS|ClinVar|CIViC,auto,TP53 R175H reported as pathogenic in cancer predisposition/somatic contexts
+TP53,p.Arg175His,p.Arg175His,SNV,c.524G>A,HGVS|ClinVar|CIViC,auto,TP53 R175H reported as pathogenic in cancer predisposition/somatic contexts
+TP53,c.524G>A,p.Arg175His,SNV,c.524G>A,HGVS|ClinVar|CIViC,auto,TP53 R175H reported as pathogenic in cancer predisposition/somatic contexts
+TP53,TP53 R175H,p.Arg175His,SNV,c.524G>A,HGVS|ClinVar|CIViC,auto,TP53 R175H reported as pathogenic in cancer predisposition/somatic contexts
