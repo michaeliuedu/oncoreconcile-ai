@@ -14,7 +14,7 @@ A trustworthy, explainable, and human-governed MVP for oncology gene and variant
 
 ## MVP Focus
 
-- Only SNVs/simple HGVS/common oncology aliases in initial scope.
+- Initial normalization focus is SNVs/simple HGVS/common oncology aliases; other alteration types (for example, fusions) may appear in starter data/examples as review-only or limited-support cases.
 - Small, highly explainable, and auditable codebase.
 - Ready for rapid iteration and demo in a 7–8 week competition.
 
