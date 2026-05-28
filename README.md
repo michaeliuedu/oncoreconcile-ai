@@ -20,6 +20,34 @@ A trustworthy, explainable, and human-governed MVP for oncology gene and variant
 
 See `src/reconciliation_schema.py` and `data/examples/` for canonical schema and output examples.
 
+
+## VICC Integration Experiment
+
+This MVP includes a lightweight, demo-ready integration with the VICC Normalizer APIs as an external normalization layer. **VICC is not being replaced**—we are experimenting with:
+
+- Explainability
+- Provenance
+- Human-governed reconciliation workflows
+
+**VICC acts as normalization infrastructure.**
+
+Our project handles:
+- Explainability, provenance, confidence, uncertainty, human review, audit trails, workflow orchestration
+
+**How it works:**
+- Preserves original input and source text
+- Calls VICC API or uses cached response (see `src/connectors/vicc_config.py` for mode)
+- Wraps result in our canonical schema with explainability, provenance, confidence, and audit trail
+- If normalization fails, returns `requires_human_review=true` and `cannot_reconcile=true`
+- Demo/test script: `python scripts/test_vicc_api.py` (see both live and cached modes)
+
+**Principles:**
+- Evidence references are not clinical recommendations
+- Human review and auditability are always supported
+- No existing normalization system is replaced
+
+See `src/connectors/vicc_client.py`, `src/services/reconciliation_service.py`, `data/reference/vicc_cached_examples.json`, `scripts/test_vicc_api.py`, and `tests/test_vicc_integration.py` for usage and validation examples.
+
 ## Data Governance Guidance
 
 To ensure transparency, reproducibility, and ethical use of data in this project, all contributors and future data updates must follow these principles:

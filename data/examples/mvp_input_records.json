@@ -1,0 +1,102 @@
+[
+  {
+    "Record ID": "NSCLC_001",
+    "Cancer Type": "NSCLC",
+    "Original Input": "p53"
+  },
+  {
+    "Record ID": "NSCLC_002",
+    "Cancer Type": "NSCLC",
+    "Original Input": "HER2"
+  },
+  {
+    "Record ID": "NSCLC_003",
+    "Cancer Type": "NSCLC",
+    "Original Input": "KRAS G12C"
+  },
+  {
+    "Record ID": "NSCLC_004",
+    "Cancer Type": "NSCLC",
+    "Original Input": "BRAF V600E"
+  },
+  {
+    "Record ID": "NSCLC_005",
+    "Cancer Type": "NSCLC",
+    "Original Input": "ALK fusion"
+  },
+  {
+    "Record ID": "NSCLC_006",
+    "Cancer Type": "NSCLC",
+    "Original Input": "BRCA1 mutation"
+  },
+  {
+    "Record ID": "NSCLC_007",
+    "Cancer Type": "NSCLC",
+    "Original Input": "EGFR Ex19del"
+  },
+  {
+    "Record ID": "NSCLC_008",
+    "Cancer Type": "NSCLC",
+    "Original Input": "EGFR exon 20 insertion"
+  },
+  {
+    "Record ID": "NSCLC_009",
+    "Cancer Type": "NSCLC",
+    "Original Input": "MET amplification"
+  },
+  {
+    "Record ID": "NSCLC_010",
+    "Cancer Type": "NSCLC",
+    "Original Input": "ERBB2 low gain"
+  },
+  {
+    "Record ID": "NSCLC_011",
+    "Cancer Type": "NSCLC",
+    "Original Input": "KRAS hotspot mutation"
+  },
+  {
+    "Record ID": "NSCLC_012",
+    "Cancer Type": "NSCLC",
+    "Original Input": "EGFR sensitizing mutation"
+  },
+  {
+    "Record ID": "NSCLC_013",
+    "Cancer Type": "NSCLC",
+    "Original Input": "BRAF activating mutation"
+  },
+  {
+    "Record ID": "NSCLC_014",
+    "Cancer Type": "NSCLC",
+    "Original Input": "NRAS codon 61 mutation"
+  },
+  {
+    "Record ID": "NSCLC_015",
+    "Cancer Type": "NSCLC",
+    "Original Input": "possible TP53 alteration"
+  },
+  {
+    "Record ID": "NSCLC_016",
+    "Cancer Type": "NSCLC",
+    "Original Input": "EGFR Exl9deI"
+  },
+  {
+    "Record ID": "NSCLC_017",
+    "Cancer Type": "NSCLC",
+    "Original Input": "likely activating KRAS alteration"
+  },
+  {
+    "Record ID": "NSCLC_018",
+    "Cancer Type": "NSCLC",
+    "Original Input": "BRAF positive"
+  },
+  {
+    "Record ID": "NSCLC_019",
+    "Cancer Type": "NSCLC",
+    "Original Input": "possible resistance mutation"
+  },
+  {
+    "Record ID": "NSCLC_020",
+    "Cancer Type": "NSCLC",
+    "Original Input": "unknown alteration"
+  }
+]

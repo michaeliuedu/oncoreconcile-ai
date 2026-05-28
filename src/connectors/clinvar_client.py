@@ -6,6 +6,7 @@ Interfaces with ClinVar for:
 """
 
 from typing import Optional, Dict, Any
+import asyncio
 
 
 class ClinVarClient:
@@ -33,6 +34,24 @@ class ClinVarClient:
     def search_variant(self, query: str) -> Optional[Dict[str, Any]]:
         """Search for variant information"""
         # Placeholder for MVP
+        return None
+
+    async def get_evidence(self, query: str) -> Optional[Dict[str, str]]:
+        """Async evidence lookup for demo/mock orchestration."""
+        # Use cache for demo; match by normalized key
+        key = query.replace(" ", "_").replace("-", "_").replace(".", "").upper()
+        entry = self.cache.get(key)
+        if entry:
+            return {
+                "source": "ClinVar",
+                "url": f"https://www.ncbi.nlm.nih.gov/clinvar/{entry['clinvar_id']}",
+                "evidence_type": "clinical_variant_reference",
+                "retrieval_mode": "cached",
+                "query_used": query,
+                "confidence_weight": "High" if entry.get("significance") == "Pathogenic" else "Medium",
+                "clinical_significance": entry.get("significance"),
+                "timestamp": "demo"
+            }
         return None
 
     @staticmethod

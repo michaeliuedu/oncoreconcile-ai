@@ -1,0 +1,17 @@
+{
+  "gene": {
+    "p53": {"match": true, "normalized": "TP53", "id": "HGNC:11998", "url": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:11998", "normalization_mode": "cached"},
+    "HER2": {"match": true, "normalized": "ERBB2", "id": "HGNC:3430", "url": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3430", "normalization_mode": "cached"},
+    "unknown": {"match": false, "normalization_mode": "fallback"}
+  },
+  "variant": {
+    "BRAF V600E": {"match": true, "normalized": "BRAF p.V600E", "id": "demo:vicc/BRAF_V600E", "url": "demo://vicc/BRAF_V600E", "normalization_mode": "cached"},
+    "KRAS G12C": {"match": true, "normalized": "KRAS p.G12C", "id": "demo:vicc/KRAS_G12C", "url": "demo://vicc/KRAS_G12C", "normalization_mode": "cached"},
+    "EGFR Ex19del": {"match": true, "normalized": "EGFR exon 19 deletion", "id": "demo:vicc/EGFR_Ex19del", "url": "demo://vicc/EGFR_Ex19del", "normalization_mode": "cached"},
+    "unknown alteration": {"match": false, "normalization_mode": "fallback"}
+  },
+  "disease": {
+    "lung cancer": {"match": true, "normalized": "Lung Cancer", "id": "DOID:1324", "url": "https://disease-ontology.org/?id=DOID:1324", "normalization_mode": "cached"},
+    "unknown": {"match": false, "normalization_mode": "fallback"}
+  }
+}

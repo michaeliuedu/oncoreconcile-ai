@@ -1,0 +1,108 @@
+{
+  "examples": [
+    {
+      "id": "example_egfr_ex19del",
+      "description": "EGFR Exon 19 Deletion from local lab NGS report",
+      "input": {
+        "raw_variant": "EGFR Ex19del",
+        "source": "local_lab_ngs",
+        "timestamp": "2026-05-17T10:30:00Z",
+        "tissue": "lung_nsclc",
+        "vaf": 0.45,
+        "coverage": 500,
+        "metadata": {
+          "sample_id": "PATIENT_001",
+          "sequencer": "Illumina NovaSeq"
+        },
+        "evidence_sources": []
+      },
+      "expected_processing_time_seconds": 6,
+      "confidence_expectation": "Very High (>0.95)"
+    },
+    {
+      "id": "example_braf_v600e",
+      "description": "BRAF V600E from melanoma pathology report",
+      "input": {
+        "raw_variant": "BRAF V600E mutation",
+        "source": "pathology_lab",
+        "timestamp": "2026-05-17T11:00:00Z",
+        "tissue": "melanoma",
+        "vaf": 0.38,
+        "coverage": 250,
+        "metadata": {
+          "sample_id": "PATIENT_002",
+          "sequencer": "IonTorrent"
+        },
+        "evidence_sources": [
+          "ClinVar:1331951 (https://www.ncbi.nlm.nih.gov/clinvar/variation/1331951/)"
+        ]
+      },
+      "expected_processing_time_seconds": 5,
+      "confidence_expectation": "Very High (>0.95)"
+    },
+    {
+      "id": "example_kras_g12c",
+      "description": "KRAS G12C from lung cancer with sotorasib treatment plan",
+      "input": {
+        "raw_variant": "KRAS G12C",
+        "source": "institutional_db",
+        "timestamp": "2026-05-17T12:00:00Z",
+        "tissue": "lung_adenocarcinoma",
+        "vaf": 0.42,
+        "coverage": 600,
+        "metadata": {
+          "sample_id": "PATIENT_003",
+          "treatment_planned": "sotorasib",
+          "sequencer": "10x Genomics"
+        },
+        "evidence_sources": [
+          "ClinVar:1701193 (https://www.ncbi.nlm.nih.gov/clinvar/variation/1701193/)"
+        ]
+      },
+      "expected_processing_time_seconds": 6,
+      "confidence_expectation": "Very High (>0.95)"
+    },
+    {
+      "id": "example_her2_ex20ins",
+      "description": "HER2 Exon 20 Insertion from breast cancer case",
+      "input": {
+        "raw_variant": "ERBB2 exon 20 insertion",
+        "source": "research_cohort",
+        "timestamp": "2026-05-17T13:00:00Z",
+        "tissue": "breast_carcinoma",
+        "vaf": 0.35,
+        "coverage": 450,
+        "metadata": {
+          "sample_id": "PATIENT_004",
+          "cohort": "HER2+ breast cancer study"
+        },
+        "evidence_sources": [
+          "ClinVar:179590 (https://www.ncbi.nlm.nih.gov/clinvar/variation/179590/)"
+        ]
+      },
+      "expected_processing_time_seconds": 6,
+      "confidence_expectation": "High (0.80-0.95)"
+    },
+    {
+      "id": "example_alk_fusion",
+      "description": "EML4-ALK fusion from lung cancer",
+      "input": {
+        "raw_variant": "EML4-ALK fusion",
+        "source": "fusion_detection_pipeline",
+        "timestamp": "2026-05-17T14:00:00Z",
+        "tissue": "lung_nsclc",
+        "vaf": 0.5,
+        "coverage": 800,
+        "metadata": {
+          "sample_id": "PATIENT_005",
+          "fusion_breakpoint": "NM_019405:e13;NM_004304:e20"
+        },
+        "evidence_sources": [
+          "ClinVar:487484 (https://www.ncbi.nlm.nih.gov/clinvar/variation/487484/)"
+        ]
+      },
+      "expected_processing_time_seconds": 7,
+      "confidence_expectation": "Very High (>0.95)"
+    }
+  ]
+}
